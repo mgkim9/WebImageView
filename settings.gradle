@@ -1,0 +1,2 @@
+include ':webimageview'
+rootProject.name='WebImageView'

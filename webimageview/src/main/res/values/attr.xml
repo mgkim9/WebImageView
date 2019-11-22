@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WebImageView">
+        <attr name="default_image_id" format="reference" />
+        <attr name="fail_image_id" format="reference" />
+        <attr name="anim_id" format="reference" />
+        <attr name="is_resize" format="boolean" />
+        <attr name="is_big_size" format="boolean" />
+    </declare-styleable>
+
+</resources>
