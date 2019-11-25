@@ -17,9 +17,78 @@
 : 1.0.0</p>
 <p><strong>Since</strong><br/>
 : 2019-11-20 오후 2:27</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="api-thread-manager.html">apiThreadManager</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">apiThreadManager</span><span class="symbol">: </span><a href="../-thread-manager/index.html"><span class="identifier">ThreadManager</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="cache-gif-path.html">cacheGifPath</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">cacheGifPath</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="cache-img-path.html">cacheImgPath</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">cacheImgPath</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="client.html">client</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">client</span><span class="symbol">: </span><span class="identifier">OkHttpClient</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="img-thread-manager.html">imgThreadManager</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">imgThreadManager</span><span class="symbol">: </span><a href="../-thread-manager/index.html"><span class="identifier">ThreadManager</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="local-thread-manager.html">localThreadManager</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">localThreadManager</span><span class="symbol">: </span><a href="../-thread-manager/index.html"><span class="identifier">ThreadManager</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="main-handler.html">mainHandler</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">mainHandler</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/os/Handler.html"><span class="identifier">Handler</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-p-a-c-k-a-g-e_-n-a-m-e.html">PACKAGE_NAME</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">PACKAGE_NAME</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
 <h3>Functions</h3>
 <table>
 <tbody>
+<tr>
+<td>
+<h4><a href="add-req.html">addReq</a></h4>
+</td>
+<td>
+<p>Request 수행</p>
+<code><span class="keyword">fun </span><span class="identifier">addReq</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.NetManager$addReq(com.mgkim.libs.webimageview.IRequest((kotlin.Any)))/req">req</span><span class="symbol">:</span>&nbsp;<a href="../-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
 <tr>
 <td>
 <h4><a href="cache-clear.html">cacheClear</a></h4>
@@ -27,6 +96,14 @@
 <td>
 <p>ImageCache clear</p>
 <code><span class="keyword">fun </span><span class="identifier">cacheClear</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="execute.html">execute</a></h4>
+</td>
+<td>
+<p>http 통신 수행</p>
+<code><span class="keyword">fun </span><span class="identifier">execute</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.NetManager$execute(okhttp3.Request)/req">req</span><span class="symbol">:</span>&nbsp;<span class="identifier">Request</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Response</span></code></td>
 </tr>
 <tr>
 <td>

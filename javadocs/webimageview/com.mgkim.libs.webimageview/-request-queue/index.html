@@ -1,0 +1,96 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RequestQueue - webimageview</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">webimageview</a>&nbsp;/&nbsp;<a href="../index.html">com.mgkim.libs.webimageview</a>&nbsp;/&nbsp;<a href="./index.html">RequestQueue</a><br/>
+<br/>
+<h1>RequestQueue</h1>
+<code><span class="keyword">internal</span> <span class="keyword">class </span><span class="identifier">RequestQueue</span></code>
+<p>Rquest를 담아두는 Queue
+LinkedBlockingDeque 으로 구현하였으며,
+Queue가 모두 비워 진 후 WorkerThread가 바로 Destry되지 않도록 aliveTima만큼 대기</p>
+<h3>Parameters</h3>
+<p><a name="isFIFO"></a>
+<code>isFIFO</code> - : true = 선입선출, false = 후입선출</p>
+<p><a name="aliveTime"></a>
+<code>aliveTime</code> - (default : 10) : Queue가 모두 비워진 후 대기하는 시간(s 초)</p>
+<p><strong>Author</strong><br/>
+: mgkim</p>
+<p><strong>Version</strong><br/>
+: 1.0.0</p>
+<p><strong>Since</strong><br/>
+: 2019-11-20 오후 1:55</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Rquest를 담아두는 Queue
+LinkedBlockingDeque 으로 구현하였으며,
+Queue가 모두 비워 진 후 WorkerThread가 바로 Destry되지 않도록 aliveTima만큼 대기</p>
+<code><span class="identifier">RequestQueue</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.RequestQueue$<init>(kotlin.Boolean, kotlin.Long)/isFIFO">isFIFO</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.RequestQueue$<init>(kotlin.Boolean, kotlin.Long)/aliveTime">aliveTime</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a>&nbsp;<span class="symbol">=</span>&nbsp;10<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="alive-time.html">aliveTime</a></h4>
+</td>
+<td>
+<p>(default : 10) : Queue가 모두 비워진 후 대기하는 시간(s 초)</p>
+<code><span class="keyword">val </span><span class="identifier">aliveTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-f-i-f-o.html">isFIFO</a></h4>
+</td>
+<td>
+<p>: true = 선입선출, false = 후입선출</p>
+<code><span class="keyword">val </span><span class="identifier">isFIFO</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="queue.html">queue</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">queue</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/util/concurrent/BlockingDeque.html"><span class="identifier">BlockingDeque</span></a><span class="symbol">&lt;</span><a href="../-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="add.html">add</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">add</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.RequestQueue$add(com.mgkim.libs.webimageview.IRequest((kotlin.Any)))/req">req</span><span class="symbol">:</span>&nbsp;<a href="../-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-empty.html">isEmpty</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isEmpty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="take.html">take</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">take</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

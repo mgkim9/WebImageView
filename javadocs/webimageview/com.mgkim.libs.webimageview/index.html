@@ -13,6 +13,13 @@
 <tbody>
 <tr>
 <td>
+<h4><a href="-constants/index.html">Constants</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">Constants</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="-i-do-in-background/index.html">IDoInBackground</a></h4>
 </td>
 <td>
@@ -91,6 +98,32 @@
 <td>
 <p>Local 작업용 Request</p>
 <code><span class="keyword">class </span><span class="identifier">RequestLocal</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-request/index.html"><span class="identifier">Request</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-request-queue/index.html">RequestQueue</a></h4>
+</td>
+<td>
+<p>Rquest를 담아두는 Queue
+LinkedBlockingDeque 으로 구현하였으며,
+Queue가 모두 비워 진 후 WorkerThread가 바로 Destry되지 않도록 aliveTima만큼 대기</p>
+<code><span class="keyword">class </span><span class="identifier">RequestQueue</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-thread-manager/index.html">ThreadManager</a></h4>
+</td>
+<td>
+<p>지정된 갯수만큼 WorkThread를 생성해서 작업을 시작해주는 class</p>
+<code><span class="keyword">class </span><span class="identifier">ThreadManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-i-request-queue-consumer/index.html"><span class="identifier">IRequestQueueConsumer</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-work-thread/index.html">WorkThread</a></h4>
+</td>
+<td>
+<p>작업 Thread</p>
+<code><span class="keyword">class </span><span class="identifier">WorkThread</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Thread.html"><span class="identifier">Thread</span></a></code></td>
 </tr>
 </tbody>
 </table>

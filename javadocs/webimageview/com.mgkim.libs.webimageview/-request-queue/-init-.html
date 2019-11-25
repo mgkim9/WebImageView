@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RequestQueue.<init> - webimageview</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">webimageview</a>&nbsp;/&nbsp;<a href="../index.html">com.mgkim.libs.webimageview</a>&nbsp;/&nbsp;<a href="index.html">RequestQueue</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="com.mgkim.libs.webimageview.RequestQueue$&lt;init&gt;(kotlin.Boolean, kotlin.Long)"></a>
+<code><span class="identifier">RequestQueue</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.RequestQueue$<init>(kotlin.Boolean, kotlin.Long)/isFIFO">isFIFO</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.RequestQueue$<init>(kotlin.Boolean, kotlin.Long)/aliveTime">aliveTime</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a>&nbsp;<span class="symbol">=</span>&nbsp;10<span class="symbol">)</span></code>
+<p>Rquest를 담아두는 Queue
+LinkedBlockingDeque 으로 구현하였으며,
+Queue가 모두 비워 진 후 WorkerThread가 바로 Destry되지 않도록 aliveTima만큼 대기</p>
+<h3>Parameters</h3>
+<p><a name="isFIFO"></a>
+<code>isFIFO</code> - : true = 선입선출, false = 후입선출</p>
+<p><a name="aliveTime"></a>
+<code>aliveTime</code> - (default : 10) : Queue가 모두 비워진 후 대기하는 시간(s 초)</p>
+<p><strong>Author</strong><br/>
+: mgkim</p>
+<p><strong>Version</strong><br/>
+: 1.0.0</p>
+<p><strong>Since</strong><br/>
+: 2019-11-20 오후 1:55</p>
+</BODY>
+</HTML>

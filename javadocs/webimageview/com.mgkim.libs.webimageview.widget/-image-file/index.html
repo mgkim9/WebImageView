@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ImageFile - webimageview</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">webimageview</a>&nbsp;/&nbsp;<a href="../index.html">com.mgkim.libs.webimageview.widget</a>&nbsp;/&nbsp;<a href="./index.html">ImageFile</a><br/>
+<br/>
+<h1>ImageFile</h1>
+<code><span class="keyword">internal</span> <span class="keyword">class </span><span class="identifier">ImageFile</span></code>
+<p>ImageFile Wrapper Class</p>
+<h3>Parameters</h3>
+<p><a name="fileName"></a>
+<code>fileName</code> - : Image fileName</p>
+<p><a name="reqWidth"></a>
+<code>reqWidth</code> - : resize를 위한 image 너비</p>
+<p><a name="reqHeight"></a>
+<code>reqHeight</code> - : resize를 위한 image 높이</p>
+<p><strong>Author</strong><br/>
+: mgkim</p>
+<p><strong>Version</strong><br/>
+: 1.0.0</p>
+<p><strong>Since</strong><br/>
+: 2019-11-20 오후 1:52</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>ImageFile Wrapper Class</p>
+<code><span class="identifier">ImageFile</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$<init>(kotlin.String, kotlin.Int, kotlin.Int)/fileName">fileName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$<init>(kotlin.String, kotlin.Int, kotlin.Int)/reqWidth">reqWidth</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$<init>(kotlin.String, kotlin.Int, kotlin.Int)/reqHeight">reqHeight</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="bitmap.html">bitmap</a></h4>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">bitmap</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="file-name.html">fileName</a></h4>
+</td>
+<td>
+<p>: Image fileName</p>
+<code><span class="keyword">val </span><span class="identifier">fileName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="image-file.html">imageFile</a></h4>
+</td>
+<td>
+<p>image가 저장될 file
+url에 마지막 "/" 이후로 File 이름을 정하고,
+reqWidth, reqHeight 가 있으면 뒤에 FileName_100x2000 형식으로 저장</p>
+<code><span class="keyword">val </span><span class="identifier">imageFile</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="req-height.html">reqHeight</a></h4>
+</td>
+<td>
+<p>: resize를 위한 image 높이</p>
+<code><span class="keyword">val </span><span class="identifier">reqHeight</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="req-width.html">reqWidth</a></h4>
+</td>
+<td>
+<p>: resize를 위한 image 너비</p>
+<code><span class="keyword">val </span><span class="identifier">reqWidth</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="decode-bitmap.html">decodeBitmap</a></h4>
+</td>
+<td>
+<p>File을 읽어서 bitmap load</p>
+<code><span class="keyword">fun </span><span class="identifier">decodeBitmap</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$decodeBitmap(kotlin.Int, kotlin.Int)/reqWidth">reqWidth</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$decodeBitmap(kotlin.Int, kotlin.Int)/reqHeight">reqHeight</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-bitmap.html">getBitmap</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getBitmap</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="write-file.html">writeFile</a></h4>
+</td>
+<td>
+<p>inputStream을 읽어서 File에 저장 후 decodeBitmap() 수행</p>
+<code><span class="keyword">fun </span><span class="identifier">writeFile</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$writeFile(java.io.InputStream)/inputStream">inputStream</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

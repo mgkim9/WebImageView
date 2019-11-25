@@ -41,6 +41,10 @@ android {
 dokka {
     outputFormat = 'html'
     outputDirectory = "$rootDir/javadocs"
+    configuration {
+        // Use to include or exclude non public members.
+        includeNonPublic = true
+    }
 }
 
 dependencies {

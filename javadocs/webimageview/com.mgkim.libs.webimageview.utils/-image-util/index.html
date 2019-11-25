@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ImageUtil - webimageview</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">webimageview</a>&nbsp;/&nbsp;<a href="../index.html">com.mgkim.libs.webimageview.utils</a>&nbsp;/&nbsp;<a href="./index.html">ImageUtil</a><br/>
+<br/>
+<h1>ImageUtil</h1>
+<code><span class="keyword">internal</span> <span class="keyword">object </span><span class="identifier">ImageUtil</span></code>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-m-a-x_-n-u-m_-p-i-x-e-l-s_-m-i-c-r-o_-i-m-a-g-e.html">MAX_NUM_PIXELS_MICRO_IMAGE</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">MAX_NUM_PIXELS_MICRO_IMAGE</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-t-a-g.html">TAG</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">TAG</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-u-n-c-o-n-s-t-r-a-i-n-e-d.html">UNCONSTRAINED</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">UNCONSTRAINED</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="compute-initial-sample-size.html">computeInitialSampleSize</a></h4>
+</td>
+<td>
+<p>Bitmap image sampleSize 구하기
+maxNumOfPixels 보다 작거나
+minSideLength 보다 크도록</p>
+<code><span class="keyword">fun </span><span class="identifier">computeInitialSampleSize</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.utils.ImageUtil$computeInitialSampleSize(android.graphics.BitmapFactory.Options, kotlin.Int, kotlin.Int)/options">options</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/BitmapFactory/Options.html"><span class="identifier">Options</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.utils.ImageUtil$computeInitialSampleSize(android.graphics.BitmapFactory.Options, kotlin.Int, kotlin.Int)/minSideLength">minSideLength</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;UNCONSTRAINED<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.utils.ImageUtil$computeInitialSampleSize(android.graphics.BitmapFactory.Options, kotlin.Int, kotlin.Int)/maxNumOfPixels">maxNumOfPixels</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;MAX_NUM_PIXELS_MICRO_IMAGE<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-device-display-size.html">getDeviceDisplaySize</a></h4>
+</td>
+<td>
+<p>Device 가로 세로 사이즈 구하기</p>
+<code><span class="keyword">fun </span><span class="identifier">getDeviceDisplaySize</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.utils.ImageUtil$getDeviceDisplaySize(android.content.Context)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Point.html"><span class="identifier">Point</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="make-thumbnail-sample-size.html">makeThumbnailSampleSize</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">makeThumbnailSampleSize</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.utils.ImageUtil$makeThumbnailSampleSize(android.graphics.BitmapFactory.Options, kotlin.Int, kotlin.Int)/options">options</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/BitmapFactory/Options.html"><span class="identifier">Options</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.utils.ImageUtil$makeThumbnailSampleSize(android.graphics.BitmapFactory.Options, kotlin.Int, kotlin.Int)/maxNumOfPixels">maxNumOfPixels</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;MAX_NUM_PIXELS_MICRO_IMAGE<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.utils.ImageUtil$makeThumbnailSampleSize(android.graphics.BitmapFactory.Options, kotlin.Int, kotlin.Int)/minSideLength">minSideLength</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;UNCONSTRAINED<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

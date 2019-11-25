@@ -31,6 +31,105 @@ File cache 확인후 없으면 image를 다운로드하여 표시</p>
 </tr>
 </tbody>
 </table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="anim-res-id.html">animResId</a></h4>
+</td>
+<td>
+<p>다운로드 성공 시 Animation
+app:anim_id="@android:anim/fade_in"</p>
+<code><span class="keyword">val </span><span class="identifier">animResId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="default-image-res-id.html">defaultImageResId</a></h4>
+</td>
+<td>
+<p>기본 이미지 res id
+app:anim_id="@android:anim/ic_default_picture"</p>
+<code><span class="keyword">val </span><span class="identifier">defaultImageResId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="fail-image-res-id.html">failImageResId</a></h4>
+</td>
+<td>
+<p>Load 실패시 이미지 res id
+app:default_image_id="@drawable/fade_in"</p>
+<code><span class="keyword">val </span><span class="identifier">failImageResId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-big-size.html">isBigSize</a></h4>
+</td>
+<td>
+<p>큰 이미지 여부
+false : 최대 Device 사이즈보다 큰 이미지의 경우 Device 사이즈로 resize 함
+true : 최대 메모리 사이즈(ImageUtil#MAX_NUM_PIXELS_MICRO_IMAGE) 보다 큰경우에만 resize 함
+app:is_big_size="true"</p>
+<code><span class="keyword">val </span><span class="identifier">isBigSize</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-resize.html">isResize</a></h4>
+</td>
+<td>
+<p>이미지 다운로드 후 resize 여부
+xml에 width와 height 값이 정의된 경우에 해당 size 에 맞게 resize
+app:is_resize="true"</p>
+<code><span class="keyword">val </span><span class="identifier">isResize</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="iv-image.html">ivImage</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">ivImage</span><span class="symbol">: </span><span class="identifier">AppCompatImageView</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="layout-height.html">layoutHeight</a></h4>
+</td>
+<td>
+<p>xml에 정의된 view height
+android:layout_height="100dp"</p>
+<code><span class="keyword">val </span><span class="identifier">layoutHeight</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="layout-width.html">layoutWidth</a></h4>
+</td>
+<td>
+<p>xml에 정의된 view width
+android:layout_width="100dp"</p>
+<code><span class="keyword">val </span><span class="identifier">layoutWidth</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="progress.html">progress</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">progress</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/widget/ProgressBar.html"><span class="identifier">ProgressBar</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="req.html">req</a></h4>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">req</span><span class="symbol">: </span><a href="../../com.mgkim.libs.webimageview/-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-t-a-g.html">TAG</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">TAG</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
 <h3>Functions</h3>
 <table>
 <tbody>
