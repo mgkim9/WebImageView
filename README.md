@@ -9,23 +9,22 @@
 - Default ImageHolder, FileImage, Loding Progress 
 - 여러차례 Request수행시 이전 Request Cancel 처리
 - FIFO 지원
+- Glide 보다 빠른 ImageLoad
 
 #### RequestAPI
- - 간편하게 Json api 요청
+ - 쉬운 Json api 요청
 
 #### RequestLocal
- - 간편하게 Background 작업 수행
+ - AsyncTask 대신 간편하게 Background 작업 수행
 
 * * *
-api 문서 : [document](http://htmlpreview.github.com/?https://github.com/mgkim9/WebImageView/blob/master/javadocs/webimageview/index.html)
+- ## API 문서 : [document](http://htmlpreview.github.com/?https://github.com/mgkim9/WebImageView/blob/master/javadocs/webimageview/index.html)
 * * *
 1.기능
 =============
 
 1.이미지 다운로더
 -------------
-
-### 관련 class
 [WebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-web-image-view/index.html) (File cahce 사용)
 
 [CahceWebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-cahce-web-image-view/index.html) (Memory cahce 사용)
@@ -67,7 +66,6 @@ api 문서 : [document](http://htmlpreview.github.com/?https://github.com/mgkim9
 
 2.api 요청
 -------------
-### 관련 class
 [RequestAPI](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-request-a-p-i/index.html) (Api 호출을 위한 Request)
 
 [IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
@@ -118,7 +116,6 @@ main class
 
 3.local 작업
 -------------
-### 관련 class
 [RequestLocal](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-request-local/index.html) (Local 작업용 Request)
 
 [IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
@@ -141,3 +138,29 @@ main class
     .addReq()   // Request 시작
 
 
+2.성능
+=============
+1.vs Glide
+-------------
+    
+### WebImageView(노란색) vs Glide(분홍색)
+![Test](https://j.gifs.com/xnzvnq.gif)
+
+- Glide 설정
+AppGlideModule class
+### src:
+    @GlideModule
+    class AppGlideModule : AppGlideModule() {
+        override fun applyOptions(context: Context, builder: GlideBuilder) {
+            super.applyOptions(context, builder)
+            val sourceExecutor = newSourceExecutor(3, "source", GlideExecutor.UncaughtThrowableStrategy.DEFAULT)
+            val diskExecutor = newDiskCacheExecutor(3, "disk-cache", GlideExecutor.UncaughtThrowableStrategy.DEFAULT)
+            builder.setSourceExecutor(sourceExecutor)
+                .setDiskCacheExecutor(diskExecutor)
+                .setDefaultRequestOptions(
+                    RequestOptions().fallback(R.drawable.ic_frown)
+                        .placeholder(R.drawable.ic_default_picture)
+                )
+
+        }
+    }
