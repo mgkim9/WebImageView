@@ -1,0 +1,115 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>WebImageView - webimageview</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">webimageview</a>&nbsp;/&nbsp;<a href="../index.html">com.mgkim.libs.webimageview.widget</a>&nbsp;/&nbsp;<a href="./index.html">WebImageView</a><br/>
+<br/>
+<h1>WebImageView</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">WebImageView</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/widget/FrameLayout.html"><span class="identifier">FrameLayout</span></a><span class="symbol">, </span><a href="../../com.mgkim.libs.webimageview/-i-result-receiver/index.html"><span class="identifier">IResultReceiver</span></a><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code>
+<p>File cache 먼저 체크하여 반영하거나 request 수행
+File cache 확인후 없으면 image를 다운로드하여 표시</p>
+<p><strong>Author</strong><br/>
+: mgkim</p>
+<p><strong>Version</strong><br/>
+: 1.0.0</p>
+<p><strong>Since</strong><br/>
+: 2019-11-20 오후 1:55</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>File cache 먼저 체크하여 반영하거나 request 수행
+File cache 확인후 없으면 image를 다운로드하여 표시</p>
+<code><span class="identifier">WebImageView</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/attrs">attrs</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/util/AttributeSet.html"><span class="identifier">AttributeSet</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/defStyleAttr">defStyleAttr</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="apply-image.html">applyImage</a></h4>
+</td>
+<td>
+<p>imageView에 적용</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">applyImage</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.String, kotlin.Boolean)/bitmap">bitmap</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.String, kotlin.Boolean)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.String, kotlin.Boolean)/isNoAnimation">isNoAnimation</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="check-request-image.html">checkRequestImage</a></h4>
+</td>
+<td>
+<p>image request 시작</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">checkRequestImage</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$checkRequestImage(kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-file-name.html">getFileName</a></h4>
+</td>
+<td>
+<p>생성될 image file name</p>
+<code><span class="keyword">fun </span><span class="identifier">getFileName</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$getFileName(kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-finish-inflate.html">onFinishInflate</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onFinishInflate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-result.html">onResult</a></h4>
+</td>
+<td>
+<p>Request 결과를 전달할 callback</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onResult</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$onResult(kotlin.Boolean, com.mgkim.libs.webimageview.IRequest((android.graphics.Bitmap)))/isSuccess">isSuccess</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$onResult(kotlin.Boolean, com.mgkim.libs.webimageview.IRequest((android.graphics.Bitmap)))/obj">obj</span><span class="symbol">:</span>&nbsp;<a href="../../com.mgkim.libs.webimageview/-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-image-bitmap.html">setImageBitmap</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setImageBitmap</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$setImageBitmap(android.graphics.Bitmap)/bitmap">bitmap</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-image-resource.html">setImageResource</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setImageResource</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$setImageResource(kotlin.Int)/resId">resId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-url.html">setUrl</a></h4>
+</td>
+<td>
+<p>이미지 load</p>
+<code><span class="keyword">fun </span><span class="identifier">setUrl</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$setUrl(kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-cahce-web-image-view/index.html">CahceWebImageView</a></h4>
+</td>
+<td>
+<p>Memory cache 먼저 체크하여 반영하거나 request 수행
+Memory cache를 확인후 없으면 WebImageView 다운로드 로직 수행</p>
+<code><span class="keyword">class </span><span class="identifier">CahceWebImageView</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">WebImageView</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

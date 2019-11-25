@@ -1,0 +1,6 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+com.mgkim.libs.webimageview
+com.mgkim.libs.webimageview.utils
+com.mgkim.libs.webimageview.widget

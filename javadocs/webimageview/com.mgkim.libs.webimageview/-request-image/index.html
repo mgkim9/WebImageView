@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RequestImage - webimageview</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">webimageview</a>&nbsp;/&nbsp;<a href="../index.html">com.mgkim.libs.webimageview</a>&nbsp;/&nbsp;<a href="./index.html">RequestImage</a><br/>
+<br/>
+<h1>RequestImage</h1>
+<code><span class="keyword">class </span><span class="identifier">RequestImage</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-request-http/index.html"><span class="identifier">RequestHttp</span></a><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code>
+<p>Image를 받아오기위한 Request</p>
+<h3>Parameters</h3>
+<p><a name="url"></a>
+<code>url</code> - : Image Url</p>
+<p><a name="reqWidth"></a>
+<code>reqWidth</code> - : resize를 위한 image 너비</p>
+<p><a name="reqHeight"></a>
+<code>reqHeight</code> - : resize를 위한 image 높이</p>
+<p><strong>Author</strong><br/>
+: mgkim</p>
+<p><strong>Version</strong><br/>
+: 1.0.0</p>
+<p><strong>Since</strong><br/>
+: 2019-11-20 오후 1:55</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Image를 받아오기위한 Request</p>
+<code><span class="identifier">RequestImage</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImage$<init>(kotlin.String, kotlin.Int, kotlin.Int)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImage$<init>(kotlin.String, kotlin.Int, kotlin.Int)/reqWidth">reqWidth</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImage$<init>(kotlin.String, kotlin.Int, kotlin.Int)/reqHeight">reqHeight</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="is-cache-hit.html">isCacheHit</a></h4>
+</td>
+<td>
+<p>preSend에서 cache hit 여부</p>
+<code><span class="keyword">var </span><span class="identifier">isCacheHit</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="url.html">url</a></h4>
+</td>
+<td>
+<p>: Image Url</p>
+<code><span class="keyword">val </span><span class="identifier">url</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-request.html">getRequest</a></h4>
+</td>
+<td>
+<p>Request 를 수행할 okhttp3.Request</p>
+<code><span class="keyword">fun </span><span class="identifier">getRequest</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Request</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-result.html">getResult</a></h4>
+</td>
+<td>
+<p>Request 결과물</p>
+<code><span class="keyword">fun </span><span class="identifier">getResult</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-result.html">onResult</a></h4>
+</td>
+<td>
+<p>image 다운로드 후 File생성 및 Bitmap load</p>
+<code><span class="keyword">fun </span><span class="identifier">onResult</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImage$onResult(okhttp3.Response)/res">res</span><span class="symbol">:</span>&nbsp;<span class="identifier">Response</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="pre-send.html">preSend</a></h4>
+</td>
+<td>
+<p>이미지 request 전 File cache check</p>
+<code><span class="keyword">fun </span><span class="identifier">preSend</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>IResultReceiver - webimageview</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">webimageview</a>&nbsp;/&nbsp;<a href="../index.html">com.mgkim.libs.webimageview</a>&nbsp;/&nbsp;<a href="./index.html">IResultReceiver</a><br/>
+<br/>
+<h1>IResultReceiver</h1>
+<code><span class="keyword">interface </span><span class="identifier">IResultReceiver</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code>
+<p>Request 결과를 전달할 listener</p>
+<p><strong>Author</strong><br/>
+: mgkim</p>
+<p><strong>Version</strong><br/>
+: 1.0.0</p>
+<p><strong>Since</strong><br/>
+: 2019-11-20 오후 1:55</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="on-result.html">onResult</a></h4>
+</td>
+<td>
+<p>Request 결과를 전달할 callback</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onResult</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.IResultReceiver$onResult(kotlin.Boolean, com.mgkim.libs.webimageview.IRequest((com.mgkim.libs.webimageview.IResultReceiver.E)))/isSuccess">isSuccess</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.IResultReceiver$onResult(kotlin.Boolean, com.mgkim.libs.webimageview.IRequest((com.mgkim.libs.webimageview.IResultReceiver.E)))/obj">obj</span><span class="symbol">:</span>&nbsp;<a href="../-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../com.mgkim.libs.webimageview.widget/-web-image-view/index.html">WebImageView</a></h4>
+</td>
+<td>
+<p>File cache 먼저 체크하여 반영하거나 request 수행
+File cache 확인후 없으면 image를 다운로드하여 표시</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">WebImageView</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/widget/FrameLayout.html"><span class="identifier">FrameLayout</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">IResultReceiver</span></a><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

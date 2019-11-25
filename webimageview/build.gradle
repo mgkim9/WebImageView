@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'org.jetbrains.dokka'
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -21,6 +24,23 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+
+    publish {
+        userOrg = 'mgkim'
+        groupId = 'com.mgkim.webimageview'
+        artifactId = 'webimageview'
+        publishVersion = '1.0.0'
+        desc = 'https://github.com/mgkim9/WebImageView'
+        website = 'https://github.com/mgkim9/WebImageView'
+        issueTracker = "https://github.com/mgkim9/WebImageView/issues"
+        repository = "https://github.com/mgkim9/WebImageView.git"
+    }
+}
+
+//kDoc
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$rootDir/javadocs"
 }
 
 dependencies {
@@ -28,6 +48,7 @@ dependencies {
     //okhttp3
     implementation "com.squareup.okhttp3:okhttp:4.2.2"
     implementation "com.google.code.gson:gson:2.8.6"
-
-
 }
+
+//publish task
+//gradlew clean build bintrayUpload -PbintrayUser=[NAME] -PbintrayKey=[API_KEY] -PdryRun=false

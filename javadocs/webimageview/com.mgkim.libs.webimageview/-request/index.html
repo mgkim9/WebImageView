@@ -1,0 +1,169 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Request - webimageview</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">webimageview</a>&nbsp;/&nbsp;<a href="../index.html">com.mgkim.libs.webimageview</a>&nbsp;/&nbsp;<a href="./index.html">Request</a><br/>
+<br/>
+<h1>Request</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Request</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code>
+<p>최상위 Rquest abstract class</p>
+<h3>Parameters</h3>
+<p><a name="E"></a>
+<code>E</code> - : Request 결과물 Type</p>
+<p><strong>Author</strong><br/>
+: mgkim</p>
+<p><strong>Version</strong><br/>
+: 1.0.0</p>
+<p><strong>Since</strong><br/>
+: 2019-11-20 오후 1:55</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>최상위 Rquest abstract class</p>
+<code><span class="identifier">Request</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="is-cancel.html">isCancel</a></h4>
+</td>
+<td>
+<p>취소 여부</p>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">isCancel</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-success.html">isSuccess</a></h4>
+</td>
+<td>
+<p>성공 여부</p>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">isSuccess</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="need-retry.html">needRetry</a></h4>
+</td>
+<td>
+<p>Retry 횟수
+Retry를 사용하려면 구현체에서 override하여 1 이상으로 설정 할것</p>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">needRetry</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-t-a-g.html">TAG</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">TAG</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="add-req.html">addReq</a></h4>
+</td>
+<td>
+<p>Request 수행</p>
+<code><span class="keyword">fun </span><span class="identifier">addReq</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="cancel.html">cancel</a></h4>
+</td>
+<td>
+<p>Request Cancel</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">cancel</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="failed.html">failed</a></h4>
+</td>
+<td>
+<p>Fail 시 수행될 함수</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">failed</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="need-retry.html">needRetry</a></h4>
+</td>
+<td>
+<p>재시도 여부</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">needRetry</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notify-receiver.html">notifyReceiver</a></h4>
+</td>
+<td>
+<p>결과 전달</p>
+<code><span class="keyword">fun </span><span class="identifier">notifyReceiver</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="release.html">release</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">release</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send.html">send</a></h4>
+</td>
+<td>
+<p>WorkerThread 에서 수행 될 함수</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">send</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-receiver.html">setReceiver</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setReceiver</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.Request$setReceiver(com.mgkim.libs.webimageview.IResultReceiver((com.mgkim.libs.webimageview.Request.E)))/receiver">receiver</span><span class="symbol">:</span>&nbsp;<a href="../-i-result-receiver/index.html"><span class="identifier">IResultReceiver</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Request</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="use-handler.html">useHandler</a></h4>
+</td>
+<td>
+<p>결과를 mainHandler 로 전달 하려면 사용</p>
+<code><span class="keyword">fun </span><span class="identifier">useHandler</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Request</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-request-http/index.html">RequestHttp</a></h4>
+</td>
+<td>
+<p>Http통신용 Request</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">RequestHttp</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Request</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-request-local/index.html">RequestLocal</a></h4>
+</td>
+<td>
+<p>Local 작업용 Request</p>
+<code><span class="keyword">class </span><span class="identifier">RequestLocal</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Request</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

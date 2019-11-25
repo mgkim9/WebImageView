@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>IRequestQueueConsumer - webimageview</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">webimageview</a>&nbsp;/&nbsp;<a href="../index.html">com.mgkim.libs.webimageview</a>&nbsp;/&nbsp;<a href="./index.html">IRequestQueueConsumer</a><br/>
+<br/>
+<h1>IRequestQueueConsumer</h1>
+<code><span class="keyword">interface </span><span class="identifier">IRequestQueueConsumer</span></code>
+<p>Queue를 take하거나 WorkThread의 destroyed를 알리기위한 interface</p>
+<p><strong>Author</strong><br/>
+: mgkim</p>
+<p><strong>Version</strong><br/>
+: 1.0.0</p>
+<p><strong>Since</strong><br/>
+: 2019-11-21 오후 8:10</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="destroyed.html">destroyed</a></h4>
+</td>
+<td>
+<p>WorkThread 종료 시 해야할 동작</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">destroyed</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="take.html">take</a></h4>
+</td>
+<td>
+<p>Queue에서 Request를 하나 꺼낸다</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">take</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

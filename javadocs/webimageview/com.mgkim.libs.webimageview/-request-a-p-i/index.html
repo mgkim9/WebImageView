@@ -1,0 +1,81 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RequestAPI - webimageview</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">webimageview</a>&nbsp;/&nbsp;<a href="../index.html">com.mgkim.libs.webimageview</a>&nbsp;/&nbsp;<a href="./index.html">RequestAPI</a><br/>
+<br/>
+<h1>RequestAPI</h1>
+<code><span class="keyword">class </span><span class="identifier">RequestAPI</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-request-http/index.html"><span class="identifier">RequestHttp</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code>
+<p>Api 호출을 위한 Request</p>
+<h3>Parameters</h3>
+<p><a name="E"></a>
+<code>E</code> - : Api 결과물 Type</p>
+<p><a name="classNm"></a>
+<code>classNm</code> - : Api 결과물 Class Type</p>
+<p><a name="url"></a>
+<code>url</code> - : api Url</p>
+<p><a name="body"></a>
+<code>body</code> - : api body</p>
+<p><a name="headers"></a>
+<code>headers</code> - : api headers</p>
+<p><strong>Author</strong><br/>
+: mgkim</p>
+<p><strong>Version</strong><br/>
+: 1.0.0</p>
+<p><strong>Since</strong><br/>
+: 2019-11-20 오후 1:55</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Api 호출을 위한 Request</p>
+<code><span class="identifier">RequestAPI</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.RequestAPI$<init>(java.lang.Class((com.mgkim.libs.webimageview.RequestAPI.E)), kotlin.String, okhttp3.RequestBody, okhttp3.Headers)/classNm">classNm</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.RequestAPI$<init>(java.lang.Class((com.mgkim.libs.webimageview.RequestAPI.E)), kotlin.String, okhttp3.RequestBody, okhttp3.Headers)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.RequestAPI$<init>(java.lang.Class((com.mgkim.libs.webimageview.RequestAPI.E)), kotlin.String, okhttp3.RequestBody, okhttp3.Headers)/body">body</span><span class="symbol">:</span>&nbsp;<span class="identifier">RequestBody</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.RequestAPI$<init>(java.lang.Class((com.mgkim.libs.webimageview.RequestAPI.E)), kotlin.String, okhttp3.RequestBody, okhttp3.Headers)/headers">headers</span><span class="symbol">:</span>&nbsp;<span class="identifier">Headers</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-request.html">getRequest</a></h4>
+</td>
+<td>
+<p>Request 를 수행할 okhttp3.Request</p>
+<code><span class="keyword">fun </span><span class="identifier">getRequest</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Request</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-result.html">getResult</a></h4>
+</td>
+<td>
+<p>Request 결과물</p>
+<code><span class="keyword">fun </span><span class="identifier">getResult</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-result.html">onResult</a></h4>
+</td>
+<td>
+<p>Http 결과를 받아서 후처리를 수행할 함수</p>
+<code><span class="keyword">fun </span><span class="identifier">onResult</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.RequestAPI$onResult(okhttp3.Response)/res">res</span><span class="symbol">:</span>&nbsp;<span class="identifier">Response</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="pre-send.html">preSend</a></h4>
+</td>
+<td>
+<p>send(본 작업) 을 수행하기 앞서 File/DB 등을 체크하기위한 전처리 함수</p>
+<code><span class="keyword">fun </span><span class="identifier">preSend</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

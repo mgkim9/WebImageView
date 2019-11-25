@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.mgkim.libs.webimageview - webimageview</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">webimageview</a>&nbsp;/&nbsp;<a href="./index.html">com.mgkim.libs.webimageview</a><br/>
+<br/>
+<h2>Package com.mgkim.libs.webimageview</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-i-do-in-background/index.html">IDoInBackground</a></h4>
+</td>
+<td>
+<p>LocalRequest 결과를 전달할 listener</p>
+<code><span class="keyword">interface </span><span class="identifier">IDoInBackground</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-i-request/index.html">IRequest</a></h4>
+</td>
+<td>
+<p>Request interface</p>
+<code><span class="keyword">interface </span><span class="identifier">IRequest</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-i-request-queue-consumer/index.html">IRequestQueueConsumer</a></h4>
+</td>
+<td>
+<p>Queue를 take하거나 WorkThread의 destroyed를 알리기위한 interface</p>
+<code><span class="keyword">interface </span><span class="identifier">IRequestQueueConsumer</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-i-result-receiver/index.html">IResultReceiver</a></h4>
+</td>
+<td>
+<p>Request 결과를 전달할 listener</p>
+<code><span class="keyword">interface </span><span class="identifier">IResultReceiver</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-net-manager/index.html">NetManager</a></h4>
+</td>
+<td>
+<p>MainClass
+사용전 Application class 에서 init() 을 꼭 호출 해야함</p>
+<code><span class="keyword">object </span><span class="identifier">NetManager</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-request/index.html">Request</a></h4>
+</td>
+<td>
+<p>최상위 Rquest abstract class</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Request</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-request-a-p-i/index.html">RequestAPI</a></h4>
+</td>
+<td>
+<p>Api 호출을 위한 Request</p>
+<code><span class="keyword">class </span><span class="identifier">RequestAPI</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-request-http/index.html"><span class="identifier">RequestHttp</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-request-http/index.html">RequestHttp</a></h4>
+</td>
+<td>
+<p>Http통신용 Request</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">RequestHttp</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-request/index.html"><span class="identifier">Request</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-request-image/index.html">RequestImage</a></h4>
+</td>
+<td>
+<p>Image를 받아오기위한 Request</p>
+<code><span class="keyword">class </span><span class="identifier">RequestImage</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-request-http/index.html"><span class="identifier">RequestHttp</span></a><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-request-local/index.html">RequestLocal</a></h4>
+</td>
+<td>
+<p>Local 작업용 Request</p>
+<code><span class="keyword">class </span><span class="identifier">RequestLocal</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-request/index.html"><span class="identifier">Request</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
