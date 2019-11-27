@@ -29,6 +29,16 @@
 * * *
 - ## API 문서 : [document](http://htmlpreview.github.com/?https://github.com/mgkim9/WebImageView/blob/1.0.1/javadocs/webimageview/index.html)
 * * *
+
+### dependencies:
+    repositories {
+        maven { url 'http://dl.bintray.com/mgkim/maven/'}
+    }
+    dependencies {
+        // webimageview
+        implementation 'com.mgkim.webimageview:webimageview:1.0.1@aar'
+    }
+
 1.기능
 =============
 
