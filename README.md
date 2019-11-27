@@ -1,4 +1,4 @@
-# WebImageView
+# WebImageView(1.0.0)
 * * *
 [ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg) ](https://bintray.com/mgkim/maven/webimageview/_latestVersion)
 * * *
@@ -18,16 +18,16 @@
  - AsyncTask 대신 간편하게 Background 작업 수행
 
 * * *
-- ## API 문서 : [document](http://htmlpreview.github.com/?https://github.com/mgkim9/WebImageView/blob/master/javadocs/webimageview/index.html)
+- ## API 문서 : [document](http://htmlpreview.github.com/?https://github.com/mgkim9/WebImageView/blob/1.0.0/javadocs/webimageview/index.html)
 * * *
 1.기능
 =============
 
 1.이미지 다운로더
 -------------
-[WebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-web-image-view/index.html) (File cahce 사용)
+[WebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.0/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-web-image-view/index.html) (File cahce 사용)
 
-[CahceWebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-cahce-web-image-view/index.html) (Memory cahce 사용)
+[CahceWebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.0/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-cahce-web-image-view/index.html) (Memory cahce 사용)
 ### exemple 1) 기본 이미지 다운로드
 ### xml:
     <com.mgkim.mgkimlib.net.widget.CahceWebImageView
@@ -66,9 +66,9 @@
 
 2.api 요청
 -------------
-[RequestAPI](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-request-a-p-i/index.html) (Api 호출을 위한 Request)
+[RequestAPI](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.0/javadocs/webimageview/com.mgkim.libs.webimageview/-request-a-p-i/index.html) (Api 호출을 위한 Request)
 
-[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
+[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.0/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
 
 ### exemple ) api 요청
 https://jsonplaceholder.typicode.com/photos/1
@@ -116,11 +116,11 @@ main class
 
 3.local 작업
 -------------
-[RequestLocal](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-request-local/index.html) (Local 작업용 Request)
+[RequestLocal](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.0/javadocs/webimageview/com.mgkim.libs.webimageview/-request-local/index.html) (Local 작업용 Request)
 
-[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
+[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.0/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
 
-[IDoInBackground](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-i-do-in-background/index.html) (Background 작업 내용을 구현할 interface)
+[IDoInBackground](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.0/javadocs/webimageview/com.mgkim.libs.webimageview/-i-do-in-background/index.html) (Background 작업 내용을 구현할 interface)
 
 ### exemple 1) 기본 Local 작업
 ### src:
