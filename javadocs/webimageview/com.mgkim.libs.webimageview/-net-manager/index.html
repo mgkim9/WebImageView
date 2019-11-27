@@ -29,13 +29,6 @@
 </tr>
 <tr>
 <td>
-<h4><a href="cache-gif-path.html">cacheGifPath</a></h4>
-</td>
-<td>
-<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">cacheGifPath</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="cache-img-path.html">cacheImgPath</a></h4>
 </td>
 <td>
@@ -47,6 +40,14 @@
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">client</span><span class="symbol">: </span><span class="identifier">OkHttpClient</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="config.html">config</a></h4>
+</td>
+<td>
+<p>각종 Config</p>
+<code><span class="keyword">var </span><span class="identifier">config</span><span class="symbol">: </span><a href="../-net-manager-config/index.html"><span class="identifier">NetManagerConfig</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -99,6 +100,15 @@
 </tr>
 <tr>
 <td>
+<h4><a href="disk-cache-clear.html">diskCacheClear</a></h4>
+</td>
+<td>
+<p>diskCache clear
+This method should always be called on a background thread, since it is a blocking call.</p>
+<code><span class="keyword">fun </span><span class="identifier">diskCacheClear</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="execute.html">execute</a></h4>
 </td>
 <td>
@@ -110,7 +120,7 @@
 <h4><a href="init.html">init</a></h4>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">init</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.NetManager$init(android.content.Context)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">init</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.NetManager$init(android.content.Context, com.mgkim.libs.webimageview.NetManagerConfig)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.NetManager$init(android.content.Context, com.mgkim.libs.webimageview.NetManagerConfig)/config">config</span><span class="symbol">:</span>&nbsp;<a href="../-net-manager-config/index.html"><span class="identifier">NetManagerConfig</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>
 </table>

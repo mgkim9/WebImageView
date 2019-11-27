@@ -1,6 +1,6 @@
 $dokka.format:html
 $dokka.linkExtension:html
-
+$dokka.location:com.mgkim.libs.webimageview$value#android.graphics.Bitmap.Configcom.mgkim.libs.webimageview/android.graphics.-bitmap.-config/value.html
 com.mgkim.libs.webimageview
 com.mgkim.libs.webimageview.utils
 com.mgkim.libs.webimageview.widget

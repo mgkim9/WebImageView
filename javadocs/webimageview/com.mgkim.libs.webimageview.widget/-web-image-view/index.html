@@ -54,6 +54,19 @@ app:anim_id="@android:anim/ic_default_picture"</p>
 </tr>
 <tr>
 <td>
+<h4><a href="disk-cache-option.html">diskCacheOption</a></h4>
+</td>
+<td>
+<p>DiskCache Option
+no_disk_caceh#disk cache 미사용
+original_caceh#original file만 disk cache로 사용
+resize_caceh#resize된 file만 disk cache로 사용(default)
+all_disk_caceh#original file, resize file 모두 disk cache로 사용
+app:disk_cache_option="resize_caceh"</p>
+<code><span class="keyword">val </span><span class="identifier">diskCacheOption</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="fail-image-res-id.html">failImageResId</a></h4>
 </td>
 <td>
@@ -71,6 +84,15 @@ false : 최대 Device 사이즈보다 큰 이미지의 경우 Device 사이즈�
 true : 최대 메모리 사이즈(ImageUtil#MAX_NUM_PIXELS_MICRO_IMAGE) 보다 큰경우에만 resize 함
 app:is_big_size="true"</p>
 <code><span class="keyword">val </span><span class="identifier">isBigSize</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-memory-cache.html">isMemoryCache</a></h4>
+</td>
+<td>
+<p>MemoryCache 사용 여부
+app:is_memory_cache="true"   (default : true)</p>
+<code><span class="keyword">val </span><span class="identifier">isMemoryCache</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -109,10 +131,33 @@ android:layout_width="100dp"</p>
 </tr>
 <tr>
 <td>
+<h4><a href="preferred-config.html">preferredConfig</a></h4>
+</td>
+<td>
+<p>pixel 저장 방법
+alpha_8
+rgb_565 (default)
+argb_8888
+rgba_f16
+hardware
+app:preferred_config="rgb_565"</p>
+<code><span class="keyword">val </span><span class="identifier">preferredConfig</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap/Config.html"><span class="identifier">Config</span></a></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="progress.html">progress</a></h4>
 </td>
 <td>
 <code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">progress</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/widget/ProgressBar.html"><span class="identifier">ProgressBar</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="progress-res-id.html">progressResId</a></h4>
+</td>
+<td>
+<p>로딩시 ProgressBar res id
+app:progress_id="@android:drawable/progress_call"</p>
+<code><span class="keyword">val </span><span class="identifier">progressResId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -139,7 +184,7 @@ android:layout_width="100dp"</p>
 </td>
 <td>
 <p>imageView에 적용</p>
-<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">applyImage</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.String, kotlin.Boolean)/bitmap">bitmap</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.String, kotlin.Boolean)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.String, kotlin.Boolean)/isNoAnimation">isNoAnimation</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">applyImage</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.String, kotlin.Boolean)/bitmap">bitmap</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.String, kotlin.Boolean)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.String, kotlin.Boolean)/isNoAnimation">isNoAnimation</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -147,7 +192,7 @@ android:layout_width="100dp"</p>
 </td>
 <td>
 <p>image request 시작</p>
-<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">checkRequestImage</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$checkRequestImage(kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">checkRequestImage</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$checkRequestImage(kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -193,20 +238,6 @@ android:layout_width="100dp"</p>
 <td>
 <p>이미지 load</p>
 <code><span class="keyword">fun </span><span class="identifier">setUrl</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$setUrl(kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
-</tr>
-</tbody>
-</table>
-<h3>Inheritors</h3>
-<table>
-<tbody>
-<tr>
-<td>
-<h4><a href="../-cahce-web-image-view/index.html">CahceWebImageView</a></h4>
-</td>
-<td>
-<p>Memory cache 먼저 체크하여 반영하거나 request 수행
-Memory cache를 확인후 없으면 WebImageView 다운로드 로직 수행</p>
-<code><span class="keyword">class </span><span class="identifier">CahceWebImageView</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">WebImageView</span></a></code></td>
 </tr>
 </tbody>
 </table>

@@ -2,6 +2,7 @@ package com.mgkim.libs.webimageview
 
 import android.content.Context
 import android.os.Handler
+import com.mgkim.libs.webimageview.utils.AssertUtil
 import com.mgkim.libs.webimageview.widget.ImageCache
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -18,33 +19,34 @@ import java.io.File
 object NetManager {
     private lateinit var PACKAGE_NAME : String
     internal lateinit var cacheImgPath : String
-    internal lateinit var cacheGifPath : String
     internal lateinit var mainHandler:Handler
     private val client by lazy {
         OkHttpClient()
     }
     private val imgThreadManager by lazy {
-        ThreadManager(3, RequestQueue(false))
+        ThreadManager(config.webImageViewConfig.threadCount, RequestQueue(config.webImageViewConfig.isFIFO))
     }
     private val apiThreadManager by lazy {
-        ThreadManager(2)
+        ThreadManager(config.apiRequestConfig.threadCount, RequestQueue(config.apiRequestConfig.isFIFO))
     }
     private val localThreadManager by lazy {
-        ThreadManager(1)
+        ThreadManager(config.localRequestConfig.threadCount, RequestQueue(config.localRequestConfig.isFIFO))
     }
+    /**
+    * 각종 Config
+    **/
+    internal var config = NetManagerConfig()
 
-    fun init(context: Context) {
+    fun init(context: Context, config:NetManagerConfig? = null) {
         PACKAGE_NAME = context.packageName
         cacheImgPath = context.cacheDir.path + "/Pictures/"
-        cacheGifPath = context.cacheDir.path + "/Gifs/"
         mainHandler = Handler()
         var cacheImgDir = File(cacheImgPath)
         if (!cacheImgDir.exists()) {
             cacheImgDir.mkdirs()
         }
-        var cacheGifDir = File(cacheGifPath)
-        if (!cacheGifDir.exists()) {
-            cacheGifDir.mkdirs()
+        config?.let {
+            this.config = it
         }
     }
 
@@ -74,5 +76,17 @@ object NetManager {
      */
     fun cacheClear() {
         ImageCache.clear()
+    }
+
+    /**
+     * diskCache clear
+     * This method should always be called on a background thread, since it is a blocking call.
+     */
+    fun diskCacheClear() {
+        AssertUtil.assertBackgroundThread()
+        var cacheFiles = File(cacheImgPath)
+        cacheFiles.listFiles()?.forEach {
+            it.delete()
+        }
     }
 }

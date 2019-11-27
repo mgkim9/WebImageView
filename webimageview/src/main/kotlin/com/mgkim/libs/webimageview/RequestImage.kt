@@ -19,7 +19,8 @@ import java.lang.NullPointerException
  */
 class RequestImage(
     val url: String, private val reqWidth: Int = 0,
-    private val reqHeight: Int = 0
+    private val reqHeight: Int = 0,
+    private val config: NetManagerConfig.WebImageViewConfig
 ) : RequestHttp<Bitmap?>() {
     /**
      * image가 저장될 file
@@ -38,7 +39,7 @@ class RequestImage(
      */
     @Throws(NullPointerException::class)
     override fun preSend(): Boolean {
-        FormatUtil.getFileName(url, reqWidth, reqHeight)!!.let {
+        FormatUtil.getFileName(url)!!.let {
             imgFile = ImageFile(it, reqWidth, reqHeight)
             isCacheHit = imgFile?.getBitmap() != null
         }

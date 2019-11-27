@@ -5,9 +5,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.view.WindowManager
 import kotlin.math.ceil
-import kotlin.math.floor
 import kotlin.math.sqrt
-
 
 internal object ImageUtil {
     private val TAG: String = "ImageUtil"
@@ -49,8 +47,8 @@ internal object ImageUtil {
      */
     fun makeThumbnailSampleSize(
         options: BitmapFactory.Options,
-        maxNumOfPixels: Int = MAX_NUM_PIXELS_MICRO_IMAGE,
-        minSideLength: Int = UNCONSTRAINED
+        minSideLength: Int = UNCONSTRAINED,
+        maxNumOfPixels: Int = MAX_NUM_PIXELS_MICRO_IMAGE
     ): Int {
 
         val initialSize = computeInitialSampleSize(
@@ -90,7 +88,7 @@ internal object ImageUtil {
         val w = options.outWidth.toDouble()
         val h = options.outHeight.toDouble()
         val lowerBound = if (maxNumOfPixels == UNCONSTRAINED) 1 else ceil(sqrt(w * h / maxNumOfPixels)).toInt()
-        val upperBound = if (minSideLength == UNCONSTRAINED) 128 else floor(w / minSideLength).coerceAtMost(floor(h / minSideLength)).toInt()
+        val upperBound = if (minSideLength == UNCONSTRAINED) 1 else ceil(w / minSideLength).coerceAtLeast((ceil(h / minSideLength))).toInt()
         if (upperBound < lowerBound) {
             // return the larger one when there is no overlapping zone.
             return lowerBound

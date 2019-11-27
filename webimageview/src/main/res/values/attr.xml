@@ -4,6 +4,21 @@
         <attr name="default_image_id" format="reference" />
         <attr name="fail_image_id" format="reference" />
         <attr name="anim_id" format="reference" />
+        <attr name="progress_id" format="reference" />
+        <attr name="disk_cache_option" format="integer" >
+            <enum name="no_disk_caceh" value="0" />
+            <enum name="original_caceh" value="1" />
+            <enum name="resize_caceh" value="2" />
+            <enum name="all_disk_caceh" value="3" />
+        </attr>
+        <attr name="is_memory_cache" format="boolean" />
+        <attr name="preferred_config" format="integer" >
+            <enum name="alpha_8" value="1" />
+            <enum name="rgb_565" value="3" />
+            <enum name="argb_8888" value="5" />
+            <enum name="rgba_f16" value="6" />
+            <enum name="hardware" value="7" />
+        </attr>
         <attr name="is_resize" format="boolean" />
         <attr name="is_big_size" format="boolean" />
     </declare-styleable>

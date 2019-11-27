@@ -1,0 +1,126 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NetManagerConfig.WebImageViewConfig - webimageview</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">webimageview</a>&nbsp;/&nbsp;<a href="../../index.html">com.mgkim.libs.webimageview</a>&nbsp;/&nbsp;<a href="../index.html">NetManagerConfig</a>&nbsp;/&nbsp;<a href="./index.html">WebImageViewConfig</a><br/>
+<br/>
+<h1>WebImageViewConfig</h1>
+<code><span class="keyword">class </span><span class="identifier">WebImageViewConfig</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BaseConfig</span></code>
+<p>WebImageView 설정 class</p>
+<h3>Parameters</h3>
+<p><a name="diskCacheOption"></a>
+<code>diskCacheOption</code> - : DiskCache Option #DiskCacheOption</p>
+<p><a name="isMemoryCache"></a>
+<code>isMemoryCache</code> - : MemoryCache 사용 여부</p>
+<p><a name="defaultImageResId"></a>
+<code>defaultImageResId</code> - : 기본 이미지 res id</p>
+<p><a name="failImageResId"></a>
+<code>failImageResId</code> - : Load 실패시 이미지 res id</p>
+<p><a name="animResId"></a>
+<code>animResId</code> - : 다운로드 성공 시 Animation</p>
+<p><a name="isResize"></a>
+<code>isResize</code> - : 이미지 다운로드 후 resize 여부</p>
+<p><a name="isBigSize"></a>
+<code>isBigSize</code> - : 큰 이미지 여부</p>
+<h3>Exceptions</h3>
+<p><a name="preferredConfig"></a>
+<code>preferredConfig</code> - : Bitmap preferredConfig</p>
+<p><strong>Author</strong><br/>
+: mgkim</p>
+<p><strong>Version</strong><br/>
+: 1.0.0</p>
+<p><strong>Since</strong><br/>
+: 2019-11-26 오후 10:16</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>WebImageView 설정 class</p>
+<code><span class="identifier">WebImageViewConfig</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig$<init>(kotlin.Int, kotlin.Boolean, android.graphics.Bitmap.Config, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int, kotlin.Boolean)/diskCacheOption">diskCacheOption</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DiskCacheOption.RESIZE_CACEH<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig$<init>(kotlin.Int, kotlin.Boolean, android.graphics.Bitmap.Config, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int, kotlin.Boolean)/isMemoryCache">isMemoryCache</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig$<init>(kotlin.Int, kotlin.Boolean, android.graphics.Bitmap.Config, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int, kotlin.Boolean)/preferredConfig">preferredConfig</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap/Config.html"><span class="identifier">Config</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Bitmap.Config.RGB_565<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig$<init>(kotlin.Int, kotlin.Boolean, android.graphics.Bitmap.Config, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int, kotlin.Boolean)/defaultImageResId">defaultImageResId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;-1<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig$<init>(kotlin.Int, kotlin.Boolean, android.graphics.Bitmap.Config, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int, kotlin.Boolean)/failImageResId">failImageResId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;-1<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig$<init>(kotlin.Int, kotlin.Boolean, android.graphics.Bitmap.Config, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int, kotlin.Boolean)/animResId">animResId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;-1<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig$<init>(kotlin.Int, kotlin.Boolean, android.graphics.Bitmap.Config, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int, kotlin.Boolean)/progressResId">progressResId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;-1<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig$<init>(kotlin.Int, kotlin.Boolean, android.graphics.Bitmap.Config, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int, kotlin.Boolean)/isResize">isResize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig$<init>(kotlin.Int, kotlin.Boolean, android.graphics.Bitmap.Config, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int, kotlin.Boolean)/isBigSize">isBigSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig$<init>(kotlin.Int, kotlin.Boolean, android.graphics.Bitmap.Config, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int, kotlin.Boolean)/threadCount">threadCount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;3<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig$<init>(kotlin.Int, kotlin.Boolean, android.graphics.Bitmap.Config, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Int, kotlin.Boolean)/isFIFO">isFIFO</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="anim-res-id.html">animResId</a></h4>
+</td>
+<td>
+<p>: 다운로드 성공 시 Animation</p>
+<code><span class="keyword">var </span><span class="identifier">animResId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="default-image-res-id.html">defaultImageResId</a></h4>
+</td>
+<td>
+<p>: 기본 이미지 res id</p>
+<code><span class="keyword">var </span><span class="identifier">defaultImageResId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="disk-cache-option.html">diskCacheOption</a></h4>
+</td>
+<td>
+<p>: DiskCache Option #DiskCacheOption</p>
+<code><span class="keyword">var </span><span class="identifier">diskCacheOption</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="fail-image-res-id.html">failImageResId</a></h4>
+</td>
+<td>
+<p>: Load 실패시 이미지 res id</p>
+<code><span class="keyword">var </span><span class="identifier">failImageResId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-big-size.html">isBigSize</a></h4>
+</td>
+<td>
+<p>: 큰 이미지 여부</p>
+<code><span class="keyword">var </span><span class="identifier">isBigSize</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-memory-cache.html">isMemoryCache</a></h4>
+</td>
+<td>
+<p>: MemoryCache 사용 여부</p>
+<code><span class="keyword">var </span><span class="identifier">isMemoryCache</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-resize.html">isResize</a></h4>
+</td>
+<td>
+<p>: 이미지 다운로드 후 resize 여부</p>
+<code><span class="keyword">var </span><span class="identifier">isResize</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="preferred-config.html">preferredConfig</a></h4>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">preferredConfig</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap/Config.html"><span class="identifier">Config</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="progress-res-id.html">progressResId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">progressResId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

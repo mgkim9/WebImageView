@@ -10,10 +10,7 @@ import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
 import android.widget.ProgressBar
 import androidx.appcompat.widget.AppCompatImageView
-import com.mgkim.libs.webimageview.IRequest
-import com.mgkim.libs.webimageview.IResultReceiver
-import com.mgkim.libs.webimageview.R
-import com.mgkim.libs.webimageview.RequestImage
+import com.mgkim.libs.webimageview.*
 import com.mgkim.libs.webimageview.utils.FormatUtil
 import com.mgkim.libs.webimageview.utils.FormatUtil.getPxSize
 import com.mgkim.libs.webimageview.utils.ImageUtil
@@ -53,6 +50,40 @@ open class WebImageView @JvmOverloads constructor(
     private val animResId: Int
 
     /**
+     * 로딩시 ProgressBar res id
+     * app:progress_id="@android:drawable/progress_call"
+     */
+    private val progressResId: Int
+
+    /**
+     * DiskCache Option
+     * no_disk_caceh#disk cache 미사용
+     * original_caceh#original file만 disk cache로 사용
+     * resize_caceh#resize된 file만 disk cache로 사용(default)
+     * all_disk_caceh#original file, resize file 모두 disk cache로 사용
+     * app:disk_cache_option="resize_caceh"
+     */
+    private val diskCacheOption: Int
+
+    /**
+     * MemoryCache 사용 여부
+     * app:is_memory_cache="true"   (default : true)
+     */
+    private val isMemoryCache: Boolean
+
+    /**
+     * pixel 저장 방법
+     * alpha_8
+     * rgb_565 (default)
+     * argb_8888
+     * rgba_f16
+     * hardware
+     * app:preferred_config="rgb_565"
+     */
+    private val preferredConfig: Bitmap.Config
+
+
+    /**
      * 이미지 다운로드 후 resize 여부
      * xml에 width와 height 값이 정의된 경우에 해당 size 에 맞게 resize
      * app:is_resize="true"
@@ -83,11 +114,16 @@ open class WebImageView @JvmOverloads constructor(
     init {
         context.theme.obtainStyledAttributes(attrs, R.styleable.WebImageView, defStyleAttr, 0)
             .apply {
-                defaultImageResId = getResourceId(R.styleable.WebImageView_default_image_id, R.drawable.ic_default_picture)
-                failImageResId = getResourceId(R.styleable.WebImageView_fail_image_id, R.drawable.ic_frown)
-                animResId = getResourceId(R.styleable.WebImageView_anim_id, 0)
-                isResize = getBoolean(R.styleable.WebImageView_is_resize, false)
-                isBigSize = getBoolean(R.styleable.WebImageView_is_big_size, false)
+                val config = NetManager.config.webImageViewConfig   // global config
+                defaultImageResId = getResourceId(R.styleable.WebImageView_default_image_id, config.defaultImageResId)
+                failImageResId = getResourceId(R.styleable.WebImageView_fail_image_id, config.failImageResId)
+                animResId = getResourceId(R.styleable.WebImageView_anim_id, config.animResId)
+                progressResId = getInteger(R.styleable.WebImageView_progress_id, config.progressResId)
+                diskCacheOption = getInteger(R.styleable.WebImageView_disk_cache_option, config.diskCacheOption)
+                isMemoryCache = getBoolean(R.styleable.WebImageView_is_resize, config.isMemoryCache)
+                preferredConfig = Constants.nativeToConfig(getInteger(R.styleable.WebImageView_preferred_config, config.preferredConfig.value))
+                isResize = getBoolean(R.styleable.WebImageView_is_resize, config.isResize)
+                isBigSize = getBoolean(R.styleable.WebImageView_is_big_size, config.isBigSize)
             }
 
         val layoutWidth:Int
@@ -116,6 +152,9 @@ open class WebImageView @JvmOverloads constructor(
         addView(LayoutInflater.from(context).inflate(R.layout.layout_web_image_view, this, false))
         ivImage = findViewById<View>(R.id.ivImage) as AppCompatImageView
         progress = findViewById<View>(R.id.progress) as ProgressBar
+        if(progressResId != -1) {
+            progress.indeterminateDrawable = context.getDrawable(progressResId)
+        }
     }
 
     /**
@@ -126,16 +165,37 @@ open class WebImageView @JvmOverloads constructor(
             cancel()
             progress.visibility = View.GONE
         }
-        setImageResource(defaultImageResId)
+        if (defaultImageResId != -1) {
+            setImageResource(defaultImageResId)
+        }
         checkRequestImage(url)
     }
 
     /**
      * image request 시작
      */
-    protected open fun checkRequestImage(url: String) {
+    private fun checkRequestImage(url: String) {
+        if(isMemoryCache) { // memory cache hit
+            val fileName = getFileName(url)
+            if (!fileName.isNullOrEmpty() && ImageCache.findCacheBitmap(fileName)) {
+                applyImage(ImageCache.getBitmap(fileName), url, true)
+                return
+            }
+        }
+
         progress.visibility = View.VISIBLE
-        req = RequestImage(url, layoutWidth, layoutHeight).useHandler().setReceiver(this).addReq()
+        val config = NetManagerConfig.WebImageViewConfig(
+            diskCacheOption = diskCacheOption,
+            isMemoryCache = isMemoryCache,
+            preferredConfig = preferredConfig,
+            defaultImageResId = defaultImageResId,
+            failImageResId = failImageResId,
+            animResId = animResId,
+            progressResId = progressResId,
+            isResize = isResize,
+            isBigSize = isBigSize
+        )
+        req = RequestImage(url, layoutWidth, layoutHeight, config).useHandler().setReceiver(this).addReq()
     }
 
     /**
@@ -144,10 +204,15 @@ open class WebImageView @JvmOverloads constructor(
      * @param url : request url
      * @param isNoAnimation : Animation 여부
      */
-    protected open fun applyImage(bitmap: Bitmap?, url: String, isNoAnimation: Boolean = false) {
+    private fun applyImage(bitmap: Bitmap?, url: String, isNoAnimation: Boolean = false) {
+        if(isMemoryCache && bitmap != null) {
+            getFileName(url)?.let { // memory cache set
+                ImageCache.setBitmap(it, bitmap)
+            }
+        }
         ivImage.setImageBitmap(bitmap)
         progress.visibility = View.GONE
-        if (animResId != 0 && !isNoAnimation) {
+        if (animResId != -1 && !isNoAnimation) {
             startAnimation(AnimationUtils.loadAnimation(context, animResId))
         } else {
             clearAnimation()
@@ -162,7 +227,9 @@ open class WebImageView @JvmOverloads constructor(
                 applyImage(bitmap, requestImage.url, requestImage.isCacheHit)
             }
         } else { //fail image
-            ivImage.setImageResource(failImageResId)
+            if (failImageResId != -1) {
+                ivImage.setImageResource(failImageResId)
+            }
             progress.visibility = View.GONE
         }
     }

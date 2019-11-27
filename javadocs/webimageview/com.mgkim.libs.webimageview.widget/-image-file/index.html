@@ -17,6 +17,8 @@
 <code>reqWidth</code> - : resize를 위한 image 너비</p>
 <p><a name="reqHeight"></a>
 <code>reqHeight</code> - : resize를 위한 image 높이</p>
+<p><a name="config"></a>
+<code>config</code> - : WebimageView 설정</p>
 <p><strong>Author</strong><br/>
 : mgkim</p>
 <p><strong>Version</strong><br/>
@@ -32,7 +34,7 @@
 </td>
 <td>
 <p>ImageFile Wrapper Class</p>
-<code><span class="identifier">ImageFile</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$<init>(kotlin.String, kotlin.Int, kotlin.Int)/fileName">fileName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$<init>(kotlin.String, kotlin.Int, kotlin.Int)/reqWidth">reqWidth</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$<init>(kotlin.String, kotlin.Int, kotlin.Int)/reqHeight">reqHeight</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span></code></td>
+<code><span class="identifier">ImageFile</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$<init>(kotlin.String, kotlin.Int, kotlin.Int, com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig)/fileName">fileName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$<init>(kotlin.String, kotlin.Int, kotlin.Int, com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig)/reqWidth">reqWidth</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$<init>(kotlin.String, kotlin.Int, kotlin.Int, com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig)/reqHeight">reqHeight</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$<init>(kotlin.String, kotlin.Int, kotlin.Int, com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig)/config">config</span><span class="symbol">:</span>&nbsp;<span class="identifier">WebImageViewConfig</span>&nbsp;<span class="symbol">=</span>&nbsp;NetManager.config.webImageViewConfig<span class="symbol">)</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -45,6 +47,14 @@
 </td>
 <td>
 <code><span class="keyword">var </span><span class="identifier">bitmap</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="config.html">config</a></h4>
+</td>
+<td>
+<p>: WebimageView 설정</p>
+<code><span class="keyword">val </span><span class="identifier">config</span><span class="symbol">: </span><span class="identifier">WebImageViewConfig</span></code></td>
 </tr>
 <tr>
 <td>
@@ -80,6 +90,13 @@ reqWidth, reqHeight 가 있으면 뒤에 FileName_100x2000 형식으로 저장</
 <p>: resize를 위한 image 너비</p>
 <code><span class="keyword">val </span><span class="identifier">reqWidth</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
 </tr>
+<tr>
+<td>
+<h4><a href="resize-image-file.html">resizeImageFile</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">resizeImageFile</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a></code></td>
+</tr>
 </tbody>
 </table>
 <h3>Functions</h3>
@@ -87,11 +104,19 @@ reqWidth, reqHeight 가 있으면 뒤에 FileName_100x2000 형식으로 저장</
 <tbody>
 <tr>
 <td>
+<h4><a href="create-bitmap.html">createBitmap</a></h4>
+</td>
+<td>
+<p>inputStream을 읽어서 bitmap load</p>
+<code><span class="keyword">fun </span><span class="identifier">createBitmap</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$createBitmap(java.io.InputStream, kotlin.Int, kotlin.Int)/inputStream">inputStream</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$createBitmap(java.io.InputStream, kotlin.Int, kotlin.Int)/reqWidth">reqWidth</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$createBitmap(java.io.InputStream, kotlin.Int, kotlin.Int)/reqHeight">reqHeight</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="decode-bitmap.html">decodeBitmap</a></h4>
 </td>
 <td>
 <p>File을 읽어서 bitmap load</p>
-<code><span class="keyword">fun </span><span class="identifier">decodeBitmap</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$decodeBitmap(kotlin.Int, kotlin.Int)/reqWidth">reqWidth</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$decodeBitmap(kotlin.Int, kotlin.Int)/reqHeight">reqHeight</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">decodeBitmap</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$decodeBitmap(java.io.File, kotlin.Int, kotlin.Int)/imageFile">imageFile</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$decodeBitmap(java.io.File, kotlin.Int, kotlin.Int)/reqWidth">reqWidth</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$decodeBitmap(java.io.File, kotlin.Int, kotlin.Int)/reqHeight">reqHeight</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
@@ -105,7 +130,7 @@ reqWidth, reqHeight 가 있으면 뒤에 FileName_100x2000 형식으로 저장</
 <h4><a href="write-file.html">writeFile</a></h4>
 </td>
 <td>
-<p>inputStream을 읽어서 File에 저장 후 decodeBitmap() 수행</p>
+<p>inputStream을 읽어서 File에 저장 후 createBitmap() 수행</p>
 <code><span class="keyword">fun </span><span class="identifier">writeFile</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageFile$writeFile(java.io.InputStream)/inputStream">inputStream</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
 </tr>
 </tbody>
