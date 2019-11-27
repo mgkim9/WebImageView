@@ -1,6 +1,6 @@
-# WebImageView(1.0.1)
+# WebImageView(1.0.2)
 * * *
-[ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg) ](https://bintray.com/mgkim/maven/webimageview/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg?version=1.0.0) ](https://bintray.com/mgkim/maven/webimageview/1.0.0/link)
 - 2019.11.25
 - 최초 업로드
 
@@ -9,6 +9,10 @@
 - Global Config 추가
 - CacheWebImageView 삭제 (Config 속성으로 대채)
 - DiskCache 관련 버그 수정
+
+[ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg) ](https://bintray.com/mgkim/maven/webimageview/_latestVersion)
+- 2019.11.28
+- lambda식 추가
 
 * * *
 ## 설명
@@ -27,7 +31,7 @@
  - AsyncTask 대신 간편하게 Background 작업 수행
 
 * * *
-- ## API 문서 : [document](http://htmlpreview.github.com/?https://github.com/mgkim9/WebImageView/blob/1.0.1/javadocs/webimageview/index.html)
+- ## API 문서 : [document](http://htmlpreview.github.com/?https://github.com/mgkim9/WebImageView/blob/1.0.2/javadocs/webimageview/index.html)
 * * *
 
 ### dependencies:
@@ -48,7 +52,7 @@
 
 1.이미지 다운로더
 -------------
-[WebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-web-image-view/index.html) (Memory, File cache 사용)
+[WebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.2/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-web-image-view/index.html) (Memory, File cache 사용)
 
 ### exemple 1) 기본 이미지 다운로드
 ### xml:
@@ -88,9 +92,9 @@
 
 2.api 요청
 -------------
-[RequestAPI](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview/-request-a-p-i/index.html) (Api 호출을 위한 Request)
+[RequestAPI](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.2/javadocs/webimageview/com.mgkim.libs.webimageview/-request-a-p-i/index.html) (Api 호출을 위한 Request)
 
-[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
+[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.2/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
 
 ### exemple ) api 요청
 https://jsonplaceholder.typicode.com/photos/1
@@ -118,6 +122,15 @@ main class
         }).useHandler() //결과(onResult)를 mainThread에서 수행 함 
         .addReq()   // Request 시작
 
+lambda
+
+    RequestAPI(PhotoDto::class.java, url)
+        .setReceiver { isSuccess, obj ->
+            // TODO UI Update
+            Log.i(TAG, "RequestAPI isSuccess $isSuccess obj ${obj.getResult()}")
+        }.useHandler() //결과(onResult)를 mainThread에서 수행 함
+        .addReq()   // Request 시작
+
 
 ### exemple 2) api 요청 (배열)
 https://jsonplaceholder.typicode.com/photos
@@ -135,14 +148,22 @@ main class
         }).useHandler() //결과(onResult)를 mainThread에서 수행 함 
         .addReq()   // Request 시작
 
+lambda
+
+    RequestAPI(Array<PhotoDto>::class.java, url)
+        .setReceiver { isSuccess, obj ->
+            // TODO UI Update
+            Log.i(TAG, "RequestAPI isSuccess $isSuccess obj ${Arrays.toString(obj.getResult())}")
+        }.useHandler() //결과(onResult)를 mainThread에서 수행 함
+        .addReq()   // Request 시작
 
 3.local 작업
 -------------
-[RequestLocal](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview/-request-local/index.html) (Local 작업용 Request)
+[RequestLocal](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.2/javadocs/webimageview/com.mgkim.libs.webimageview/-request-local/index.html) (Local 작업용 Request)
 
-[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
+[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.2/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
 
-[IDoInBackground](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview/-i-do-in-background/index.html) (Background 작업 내용을 구현할 interface)
+[IDoInBackground](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.2/javadocs/webimageview/com.mgkim.libs.webimageview/-i-do-in-background/index.html) (Background 작업 내용을 구현할 interface)
 
 ### exemple 1) 기본 Local 작업
 ### src:
@@ -158,11 +179,21 @@ main class
         }
     }).useHandler() //결과(onResult)를 mainThread에서 수행 함 
     .addReq()   // Request 시작
+    
+lambda    
+    
+    RequestLocal<Void?>().setDoInBackground {
+        // TODO Background
+        null
+    }.setReceiver { isSuccess, obj ->
+        // TODO UI Update 
+    }.useHandler() //결과(onResult)를 mainThread에서 수행 함
+    .addReq()   // Request 시작
 
 
 2.Global Config
 =============
-[NetManagerConfig](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview/-net-manager-config/index.html) (NetManager 설정 class)
+[NetManagerConfig](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.2/javadocs/webimageview/com.mgkim.libs.webimageview/-net-manager-config/index.html) (NetManager 설정 class)
 
 ### Config
 - diskCacheOption : diskCache 설정 지정
