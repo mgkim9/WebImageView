@@ -1,6 +1,15 @@
-# WebImageView
+# WebImageView(1.0.1)
 * * *
 [ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg) ](https://bintray.com/mgkim/maven/webimageview/_latestVersion)
+- 2019.11.25
+- 최초 업로드
+
+[ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg?version=1.0.1) ](https://bintray.com/mgkim/maven/webimageview/1.0.1/link)
+- 2019.11.27
+- Global Config 추가
+- CahceWebImageView 삭제 (Config 속성으로 대채)
+- DiskCache 관련 버그 수정
+
 * * *
 ## 설명
 #### WebImageView, CahceWebImageView
@@ -18,16 +27,16 @@
  - AsyncTask 대신 간편하게 Background 작업 수행
 
 * * *
-- ## API 문서 : [document](http://htmlpreview.github.com/?https://github.com/mgkim9/WebImageView/blob/master/javadocs/webimageview/index.html)
+- ## API 문서 : [document](http://htmlpreview.github.com/?https://github.com/mgkim9/WebImageView/blob/1.0.1/javadocs/webimageview/index.html)
 * * *
 1.기능
 =============
 
 1.이미지 다운로더
 -------------
-[WebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-web-image-view/index.html) (File cahce 사용)
+[WebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-web-image-view/index.html) (File cahce 사용)
 
-[CahceWebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-cahce-web-image-view/index.html) (Memory cahce 사용)
+[CahceWebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-cahce-web-image-view/index.html) (Memory cahce 사용)
 ### exemple 1) 기본 이미지 다운로드
 ### xml:
     <com.mgkim.mgkimlib.net.widget.CahceWebImageView
@@ -66,9 +75,9 @@
 
 2.api 요청
 -------------
-[RequestAPI](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-request-a-p-i/index.html) (Api 호출을 위한 Request)
+[RequestAPI](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview/-request-a-p-i/index.html) (Api 호출을 위한 Request)
 
-[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
+[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
 
 ### exemple ) api 요청
 https://jsonplaceholder.typicode.com/photos/1
@@ -116,11 +125,11 @@ main class
 
 3.local 작업
 -------------
-[RequestLocal](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-request-local/index.html) (Local 작업용 Request)
+[RequestLocal](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview/-request-local/index.html) (Local 작업용 Request)
 
-[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
+[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
 
-[IDoInBackground](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/master/javadocs/webimageview/com.mgkim.libs.webimageview/-i-do-in-background/index.html) (Background 작업 내용을 구현할 interface)
+[IDoInBackground](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview/-i-do-in-background/index.html) (Background 작업 내용을 구현할 interface)
 
 ### exemple 1) 기본 Local 작업
 ### src:
@@ -138,7 +147,38 @@ main class
     .addReq()   // Request 시작
 
 
-2.성능
+2.Global Config
+=============
+[NetManagerConfig](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview/-net-manager-config/index.html) (NetManager 설정 class)
+
+### Config
+- diskCacheOption : diskCache 설정 지정
+- isMemoryCache : MemoryCache 사용 여부
+- preferredConfig : Bitmap.Config 지정
+- defaultImageResId : Request시 기본 이미지 지정
+- failImageResId : 다운로드 실패 시 이미지 지정
+- animResId : 다운로드 시 Animation 효과 지정
+- progressResId : 다운로드 시 프로그래스 지정
+- isResize : ImageView Size에 맞게 Resize
+- isBigSize : BigSize 이미지 여부(Default : false = Divice사이즈 보다 작개 Resize) 
+
+### src:
+Application class
+
+    NetManager.init(this, NetManagerConfig(
+        NetManagerConfig.WebImageViewConfig(
+            diskCacheOption = NetManagerConfig.DiskCacheOption.ALL_DISK_CACEH,
+            isMemoryCache = true,
+            preferredConfig = Bitmap.Config.ARGB_8888,
+            defaultImageResId = R.drawable.ic_default_picture,
+            failImageResId = R.drawable.ic_frown,
+            animResId = android.R.anim.fade_in
+            progressResId = R.drawable.progress_call,
+            isResize = true,
+            isBigSize = ifalse
+        )
+    ))
+3.성능
 =============
 1.vs Glide
 -------------
