@@ -17,6 +17,15 @@ class RequestLocal<E>: Request<E>() {
         doInBackground = receiver
         return this
     }
+    //lambda
+    fun setDoInBackground(receiver: () -> E): Request<E> {
+        this.doInBackground = object: IDoInBackground<E> {
+            override fun doInBackground(): E {
+                return receiver()
+            }
+        }
+        return this
+    }
 
     private fun doInBackground(): E? {
         return doInBackground?.doInBackground()

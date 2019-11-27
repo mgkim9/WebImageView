@@ -37,6 +37,15 @@ abstract class Request<E>: IRequest<E> {
         this.receiver = receiver
         return this
     }
+    //lambda
+    fun setReceiver(receiver: (Boolean, IRequest<E>) -> Unit): Request<E> {
+        this.receiver = object: IResultReceiver<E> {
+            override fun onResult(isSuccess:Boolean, obj: IRequest<E>) {
+                return receiver(isSuccess, obj)
+            }
+        }
+        return this
+    }
 
     abstract override fun send()
     override fun cancel() {
