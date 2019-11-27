@@ -172,10 +172,10 @@ Application class
             preferredConfig = Bitmap.Config.ARGB_8888,
             defaultImageResId = R.drawable.ic_default_picture,
             failImageResId = R.drawable.ic_frown,
-            animResId = android.R.anim.fade_in
+            animResId = android.R.anim.fade_in,
             progressResId = R.drawable.progress_call,
             isResize = true,
-            isBigSize = ifalse
+            isBigSize = false
         )
     ))
 3.성능
