@@ -7,12 +7,12 @@
 [ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg?version=1.0.1) ](https://bintray.com/mgkim/maven/webimageview/1.0.1/link)
 - 2019.11.27
 - Global Config 추가
-- CahceWebImageView 삭제 (Config 속성으로 대채)
+- CacheWebImageView 삭제 (Config 속성으로 대채)
 - DiskCache 관련 버그 수정
 
 * * *
 ## 설명
-#### WebImageView, CahceWebImageView
+#### WebImageView
 - 간편하게 Image를 다운로드하고 ImageView에 표시
 - Disk / Memory Cache 적용
 - Default ImageHolder, FileImage, Loding Progress 
@@ -34,12 +34,11 @@
 
 1.이미지 다운로더
 -------------
-[WebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-web-image-view/index.html) (File cahce 사용)
+[WebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-web-image-view/index.html) (Memory, File cache 사용)
 
-[CahceWebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.1/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-cahce-web-image-view/index.html) (Memory cahce 사용)
 ### exemple 1) 기본 이미지 다운로드
 ### xml:
-    <com.mgkim.mgkimlib.net.widget.CahceWebImageView
+    <com.mgkim.mgkimlib.net.widget.WebImageView
       android:id="@+id/iv_image"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content" />
@@ -56,7 +55,7 @@
 - is_resize : ImageView Size에 맞게 Resize
 
 ### xml:
-    <com.mgkim.mgkimlib.net.widget.CahceWebImageView
+    <com.mgkim.mgkimlib.net.widget.WebImageView
       android:id="@+id/iv_image"
       android:layout_width="50dp"
       android:layout_height="50dp"
