@@ -25,9 +25,9 @@ internal class RequestQueue(private val isFIFO: Boolean, private val aliveTime: 
 
     fun take(): IRequest<*>? {
         return if (aliveTime > 0) {
-            if (isFIFO) queue.poll(aliveTime, TimeUnit.SECONDS) else queue.pollLast(aliveTime, TimeUnit.SECONDS)
+            if (isFIFO) queue.pollLast(aliveTime, TimeUnit.SECONDS) else queue.poll(aliveTime, TimeUnit.SECONDS)
         } else {
-            if (isFIFO) queue.poll() else queue.pollLast()
+            if (isFIFO) queue.pollLast() else queue.poll()
         }
     }
 }
