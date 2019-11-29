@@ -219,7 +219,7 @@ open class WebImageView @JvmOverloads constructor(
         }
     }
 
-    override fun onResult(isSuccess: Boolean, obj: IRequest<Bitmap?>) {
+    override fun onResult(isSuccess: Boolean, obj: Request<Bitmap?>) {
         if (isSuccess) {
             val requestImage = obj as RequestImage
             val bitmap = requestImage.getResult()

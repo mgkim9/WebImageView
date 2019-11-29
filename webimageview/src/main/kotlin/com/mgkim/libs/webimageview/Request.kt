@@ -1,6 +1,7 @@
 package com.mgkim.libs.webimageview
 
 import android.os.Handler
+import java.lang.StringBuilder
 
 /**
  * 최상위 Rquest abstract class
@@ -32,15 +33,18 @@ abstract class Request<E>: IRequest<E> {
         return this
     }
 
+    val errorMsg: StringBuilder by lazy { StringBuilder() }
+    var exception: Exception? = null
+
     private var receiver : IResultReceiver<E>? = null
     fun setReceiver(receiver: IResultReceiver<E>) : Request<E> {
         this.receiver = receiver
         return this
     }
     //lambda
-    fun setReceiver(receiver: (Boolean, IRequest<E>) -> Unit): Request<E> {
+    fun setReceiver(receiver: (Boolean, Request<E>) -> Unit): Request<E> {
         this.receiver = object: IResultReceiver<E> {
-            override fun onResult(isSuccess:Boolean, obj: IRequest<E>) {
+            override fun onResult(isSuccess:Boolean, obj: Request<E>) {
                 return receiver(isSuccess, obj)
             }
         }
@@ -51,7 +55,10 @@ abstract class Request<E>: IRequest<E> {
     override fun cancel() {
         isCancel = true
     }
-    abstract override fun failed()
+    override fun failed() {
+        isSuccess = false
+        notifyReceiver()
+    }
     override var isSuccess: Boolean = false
     override var isCancel: Boolean = false
     override fun needRetry(): Boolean = --needRetry > 0

@@ -12,5 +12,5 @@ interface IResultReceiver<E> {
      * @param isSuccess : 성공 여부
      * @param obj : Request 자신 (obj.getResult() 로 결과물을 얻을 수 있다)
      */
-    fun onResult(isSuccess:Boolean, obj: IRequest<E>)
+    fun onResult(isSuccess:Boolean, obj: Request<E>)
 }

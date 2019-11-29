@@ -40,12 +40,9 @@ abstract class RequestHttp<E>: Request<E>() {
                 notifyReceiver()
             }
         } catch (e : Exception) {
+            errorMsg.append("send error : $e \n")
+            exception = e
             Log.e(TAG, "send error : $e")
         }
-    }
-
-    override fun failed() {
-        isSuccess = false
-        notifyReceiver()
     }
 }

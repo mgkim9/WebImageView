@@ -1,5 +1,7 @@
 package com.mgkim.libs.webimageview
 
+import com.mgkim.libs.webimageview.utils.Log
+
 /**
  * Local 작업용 Request
  * @author : mgkim
@@ -36,7 +38,9 @@ class RequestLocal<E>: Request<E>() {
             resObj = doInBackground()
             isSuccess = true
         } catch (e:Exception){
-            e.printStackTrace()
+            errorMsg.append("send error : $e \n")
+            exception = e
+            Log.e(TAG, "send error : $e")
         }
 
         if(isSuccess) {
@@ -44,8 +48,4 @@ class RequestLocal<E>: Request<E>() {
         }
     }
     override fun getResult(): E? = resObj
-    override fun failed() {
-        isSuccess = false
-        notifyReceiver()
-    }
 }
