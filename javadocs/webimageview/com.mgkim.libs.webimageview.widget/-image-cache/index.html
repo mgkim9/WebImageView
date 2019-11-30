@@ -27,6 +27,20 @@
 <td>
 <code><span class="keyword">val </span><span class="identifier">cache</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/util/LruCache.html"><span class="identifier">LruCache</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">&gt;</span></code></td>
 </tr>
+<tr>
+<td>
+<h4><a href="request-cache.html">requestCache</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">requestCache</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/util/LruCache.html"><span class="identifier">LruCache</span></a><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/widget/ImageView.html"><span class="identifier">ImageView</span></a><span class="symbol">,</span>&nbsp;<a href="../../com.mgkim.libs.webimageview/-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-t-a-g.html">TAG</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">TAG</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span></code></td>
+</tr>
 </tbody>
 </table>
 <h3>Functions</h3>
@@ -41,17 +55,45 @@
 </tr>
 <tr>
 <td>
+<h4><a href="clear-request-cache.html">clearRequestCache</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">clearRequestCache</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="find-cache-bitmap.html">findCacheBitmap</a></h4>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">findCacheBitmap</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageCache$findCacheBitmap(kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">findCacheBitmap</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageCache$findCacheBitmap(kotlin.String)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="find-request-cache.html">findRequestCache</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">findRequestCache</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageCache$findRequestCache(android.widget.ImageView)/imageView">imageView</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/widget/ImageView.html"><span class="identifier">ImageView</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="get-bitmap.html">getBitmap</a></h4>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">getBitmap</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageCache$getBitmap(kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">getBitmap</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageCache$getBitmap(kotlin.String)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-request-cache.html">getRequestCache</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getRequestCache</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageCache$getRequestCache(android.widget.ImageView)/imageView">imageView</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/widget/ImageView.html"><span class="identifier">ImageView</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.mgkim.libs.webimageview/-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="remove-request-cache.html">removeRequestCache</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">removeRequestCache</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageCache$removeRequestCache(android.widget.ImageView)/imageView">imageView</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/widget/ImageView.html"><span class="identifier">ImageView</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -59,6 +101,13 @@
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">setBitmap</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageCache$setBitmap(kotlin.String, android.graphics.Bitmap)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageCache$setBitmap(kotlin.String, android.graphics.Bitmap)/bitmap">bitmap</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-request-cache.html">setRequestCache</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setRequestCache</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageCache$setRequestCache(android.widget.ImageView, com.mgkim.libs.webimageview.IRequest((android.graphics.Bitmap)))/imageView">imageView</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/widget/ImageView.html"><span class="identifier">ImageView</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.ImageCache$setRequestCache(android.widget.ImageView, com.mgkim.libs.webimageview.IRequest((android.graphics.Bitmap)))/request">request</span><span class="symbol">:</span>&nbsp;<a href="../../com.mgkim.libs.webimageview/-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>
 </table>

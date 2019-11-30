@@ -168,6 +168,22 @@ app:progress_id="@android:drawable/progress_call"</p>
 </tr>
 <tr>
 <td>
+<h4><a href="rounded-corner-no-square.html">roundedCornerNoSquare</a></h4>
+</td>
+<td>
+<p>이미지 곡선처리 미사용 여부 bitmask ( RoundedCornerSquare.TOP_LEFT(좌상단), RoundedCornerSquare.TOP_RIGHT(우상단), RoundedCornerSquare.BOTTOM_LEFT(좌하단), RoundedCornerSquare.BOTTOM_RIGHT(우하단)</p>
+<code><span class="keyword">var </span><span class="identifier">roundedCornerNoSquare</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="rounded-corner-pixel.html">roundedCornerPixel</a></h4>
+</td>
+<td>
+<p>이미지 곡선 처리 값</p>
+<code><span class="keyword">var </span><span class="identifier">roundedCornerPixel</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="-t-a-g.html">TAG</a></h4>
 </td>
 <td>
@@ -184,7 +200,7 @@ app:progress_id="@android:drawable/progress_call"</p>
 </td>
 <td>
 <p>imageView에 적용</p>
-<code><span class="keyword">fun </span><span class="identifier">applyImage</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.String, kotlin.Boolean)/bitmap">bitmap</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.String, kotlin.Boolean)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.String, kotlin.Boolean)/isNoAnimation">isNoAnimation</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">applyImage</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.Boolean)/bitmap">bitmap</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$applyImage(android.graphics.Bitmap, kotlin.Boolean)/isNoAnimation">isNoAnimation</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -201,6 +217,14 @@ app:progress_id="@android:drawable/progress_call"</p>
 <td>
 <p>생성될 image file name</p>
 <code><span class="keyword">fun </span><span class="identifier">getFileName</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$getFileName(kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="make-rounded.html">makeRounded</a></h4>
+</td>
+<td>
+<p>make rounded image</p>
+<code><span class="keyword">fun </span><span class="identifier">makeRounded</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$makeRounded(kotlin.Float, kotlin.Int)/roundedCornerPixel">roundedCornerPixel</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.widget.WebImageView$makeRounded(kotlin.Float, kotlin.Int)/roundedCornerNoSquare">roundedCornerNoSquare</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">WebImageView</span></a></code></td>
 </tr>
 <tr>
 <td>

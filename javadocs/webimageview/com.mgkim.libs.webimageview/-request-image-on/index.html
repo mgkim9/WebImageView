@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RequestImageOn - webimageview</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">webimageview</a>&nbsp;/&nbsp;<a href="../index.html">com.mgkim.libs.webimageview</a>&nbsp;/&nbsp;<a href="./index.html">RequestImageOn</a><br/>
+<br/>
+<h1>RequestImageOn</h1>
+<code><span class="keyword">class </span><span class="identifier">RequestImageOn</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-request-image/index.html"><span class="identifier">RequestImage</span></a></code>
+<p>Image를 받아오기위한 Request</p>
+<h3>Parameters</h3>
+<p><a name="url"></a>
+<code>url</code> - : Image Url</p>
+<p><a name="reqWidth"></a>
+<code>reqWidth</code> - : resize를 위한 image 너비</p>
+<p><a name="reqHeight"></a>
+<code>reqHeight</code> - : resize를 위한 image 높이</p>
+<p><a name="config"></a>
+<code>config</code> - : RequestImage 설정</p>
+<p><strong>Author</strong><br/>
+: mgkim</p>
+<p><strong>Version</strong><br/>
+: 1.0.4</p>
+<p><strong>Since</strong><br/>
+: 2019-12-01 오전 5:55</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Image를 받아오기위한 Request</p>
+<code><span class="identifier">RequestImageOn</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImageOn$<init>(kotlin.String, kotlin.Int, kotlin.Int, com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImageOn$<init>(kotlin.String, kotlin.Int, kotlin.Int, com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig)/reqWidth">reqWidth</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImageOn$<init>(kotlin.String, kotlin.Int, kotlin.Int, com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig)/reqHeight">reqHeight</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImageOn$<init>(kotlin.String, kotlin.Int, kotlin.Int, com.mgkim.libs.webimageview.NetManagerConfig.WebImageViewConfig)/config">config</span><span class="symbol">:</span>&nbsp;<span class="identifier">WebImageViewConfig</span>&nbsp;<span class="symbol">=</span>&nbsp;NetManager.config.webImageViewConfig<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="apply-image.html">applyImage</a></h4>
+</td>
+<td>
+<p>imageView에 적용</p>
+<code><span class="keyword">fun </span><span class="identifier">applyImage</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImageOn$applyImage(android.widget.ImageView, android.graphics.Bitmap, kotlin.Boolean)/imageView">imageView</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/widget/ImageView.html"><span class="identifier">ImageView</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImageOn$applyImage(android.widget.ImageView, android.graphics.Bitmap, kotlin.Boolean)/bitmap">bitmap</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImageOn$applyImage(android.widget.ImageView, android.graphics.Bitmap, kotlin.Boolean)/isNoAnimation">isNoAnimation</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="into.html">into</a></h4>
+</td>
+<td>
+<p>Cache된 Image혹은 다운로드 후 imageView에 apply 하는 함수</p>
+<code><span class="keyword">fun </span><span class="identifier">into</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImageOn$into(android.widget.ImageView)/imageView">imageView</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/widget/ImageView.html"><span class="identifier">ImageView</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="make-rounded.html">makeRounded</a></h4>
+</td>
+<td>
+<p>make rounded image</p>
+<code><span class="keyword">fun </span><span class="identifier">makeRounded</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImageOn$makeRounded(kotlin.Float, kotlin.Int)/roundedCornerPixel">roundedCornerPixel</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">, </span><span class="identifier" id="com.mgkim.libs.webimageview.RequestImageOn$makeRounded(kotlin.Float, kotlin.Int)/roundedCornerNoSquare">roundedCornerNoSquare</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">RequestImageOn</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

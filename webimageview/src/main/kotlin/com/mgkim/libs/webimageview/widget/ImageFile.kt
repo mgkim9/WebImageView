@@ -41,7 +41,7 @@ internal class ImageFile(
     init {
         if (config.diskCacheOption and NetManagerConfig.DiskCacheOption.RESIZE_CACEH > 0 && resizeImageFile.exists()) {
             decodeBitmap(resizeImageFile)?.let {
-                bitmap = if(config.roundedCornerPixel >= 0 && it != null) {
+                bitmap = if(config.roundedCornerPixel >= 0) {
                     makeRounded(it, config.roundedCornerPixel, config.roundedCornerNoSquare)
                 } else {
                     it
@@ -52,7 +52,7 @@ internal class ImageFile(
         }
         if(bitmap == null && imageFile.exists()) {
             decodeBitmap(imageFile, reqWidth, reqHeight)?.let {
-                bitmap = if (config.roundedCornerPixel >= 0 && it != null) {
+                bitmap = if (config.roundedCornerPixel >= 0) {
                     makeRounded(it, config.roundedCornerPixel, config.roundedCornerNoSquare)
                 } else {
                     it

@@ -32,7 +32,7 @@
 <h4><a href="cache-img-path.html">cacheImgPath</a></h4>
 </td>
 <td>
-<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">cacheImgPath</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+<code><span class="keyword">val </span><span class="identifier">cacheImgPath</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -48,6 +48,13 @@
 <td>
 <p>각종 Config</p>
 <code><span class="keyword">var </span><span class="identifier">config</span><span class="symbol">: </span><a href="../-net-manager-config/index.html"><span class="identifier">NetManagerConfig</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="context.html">context</a></h4>
+</td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">context</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -68,14 +75,14 @@
 <h4><a href="main-handler.html">mainHandler</a></h4>
 </td>
 <td>
-<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">mainHandler</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/os/Handler.html"><span class="identifier">Handler</span></a></code></td>
+<code><span class="keyword">val </span><span class="identifier">mainHandler</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/os/Handler.html"><span class="identifier">Handler</span></a></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="-p-a-c-k-a-g-e_-n-a-m-e.html">PACKAGE_NAME</a></h4>
 </td>
 <td>
-<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">PACKAGE_NAME</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+<code><span class="keyword">val </span><span class="identifier">PACKAGE_NAME</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
 </tr>
 </tbody>
 </table>
@@ -114,6 +121,14 @@ This method should always be called on a background thread, since it is a blocki
 <td>
 <p>http 통신 수행</p>
 <code><span class="keyword">fun </span><span class="identifier">execute</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.NetManager$execute(okhttp3.Request)/req">req</span><span class="symbol">:</span>&nbsp;<span class="identifier">Request</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Response</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-config-clone.html">getConfigClone</a></h4>
+</td>
+<td>
+<p>설정값 clone</p>
+<code><span class="keyword">fun </span><span class="identifier">getConfigClone</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-net-manager-config/index.html"><span class="identifier">NetManagerConfig</span></a></code></td>
 </tr>
 <tr>
 <td>

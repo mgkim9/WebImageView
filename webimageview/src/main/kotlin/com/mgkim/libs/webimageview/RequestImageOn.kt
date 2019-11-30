@@ -36,7 +36,7 @@ class RequestImageOn(
             FormatUtil.getFileName(url, reqWidth, reqHeight)?.let {
                 FormatUtil.getRoundedCacheName(it, config.roundedCornerPixel).apply {
                     if (ImageCache.findCacheBitmap(this)) {
-                        applyImage(imageView, ImageCache.getBitmap(this), url, true)
+                        applyImage(imageView, ImageCache.getBitmap(this), true)
                         return
                     }
                 }
@@ -45,14 +45,14 @@ class RequestImageOn(
         if (config.defaultImageResId != -1) {
             imageView.setImageResource(config.defaultImageResId)
         }
-        ImageCache.setRequestCache(imageView, this as IRequest<Bitmap>) // Request cache
+        ImageCache.setRequestCache(imageView, this as IRequest<Bitmap?>) // Request cache
         setReceiver{isSuccess, obj ->
             ImageCache.removeRequestCache(imageView)// Request cache remove
             if (isSuccess) {
                 val requestImage = obj as RequestImage
                 val bitmap = requestImage.getResult()
                 if (bitmap != null) {
-                    applyImage(imageView, bitmap, requestImage.url, requestImage.isCacheHit)
+                    applyImage(imageView, bitmap, requestImage.isCacheHit)
                 }
             } else {
                 if (config.failImageResId != -1) {
@@ -68,7 +68,7 @@ class RequestImageOn(
      * @param url : request url
      * @param isNoAnimation : Animation 여부
      */
-    private fun applyImage(imageView: ImageView, bitmap: Bitmap?, url: String, isNoAnimation: Boolean = false) {
+    private fun applyImage(imageView: ImageView, bitmap: Bitmap?, isNoAnimation: Boolean = false) {
         imageView.setImageBitmap(bitmap)
         if (config.animResId != -1 && !isNoAnimation) {
             imageView.startAnimation(AnimationUtils.loadAnimation(imageView.context, config.animResId))

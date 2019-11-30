@@ -18,7 +18,7 @@ import java.io.InputStream
  * @param config : RequestImage 설정
  */
 open class RequestImage(
-    val url: String, protected var reqWidth: Int = 0,
+    protected val url: String, protected var reqWidth: Int = 0,
     protected var reqHeight: Int = 0,
     protected val config: NetManagerConfig.WebImageViewConfig = NetManager.config.webImageViewConfig
 ) : RequestHttp<Bitmap?>() {

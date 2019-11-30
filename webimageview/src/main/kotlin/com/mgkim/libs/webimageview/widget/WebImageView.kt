@@ -201,7 +201,7 @@ open class WebImageView @JvmOverloads constructor(
             getFileName(url)?.let {
                 getRoundedCacheName(it, roundedCornerPixel).apply {
                     if (ImageCache.findCacheBitmap(this)) {
-                        applyImage(ImageCache.getBitmap(this), url, true)
+                        applyImage(ImageCache.getBitmap(this), true)
                         return
                     }
                 }
@@ -233,7 +233,7 @@ open class WebImageView @JvmOverloads constructor(
      * @param url : request url
      * @param isNoAnimation : Animation 여부
      */
-    private fun applyImage(bitmap: Bitmap?, url: String, isNoAnimation: Boolean = false) {
+    private fun applyImage(bitmap: Bitmap?, isNoAnimation: Boolean = false) {
         ivImage.setImageBitmap(bitmap)
         progress.visibility = View.GONE
         if (animResId != -1 && !isNoAnimation) {
@@ -248,7 +248,7 @@ open class WebImageView @JvmOverloads constructor(
             val requestImage = obj as RequestImage
             val bitmap = requestImage.getResult()
             if (bitmap != null) {
-                applyImage(bitmap, requestImage.url, requestImage.isCacheHit)
+                applyImage(bitmap, requestImage.isCacheHit)
             }
         } else { //fail image
             if (failImageResId != -1) {
