@@ -27,9 +27,13 @@ class RequestImageOn(
      * @param imageView : apply할 ImageView
      */
     fun into(imageView: ImageView) {
+        if (config.isResize) {
+            reqWidth = imageView.width
+            reqHeight = imageView.height
+        }
         ImageCache.getRequestCache(imageView)?.cancel()  // 해당뷰로 이미 Request가 있으면 Cancel요청
         if(config.isMemoryCache) { // memory cache hit
-            FormatUtil.getFileName(url)?.let {
+            FormatUtil.getFileName(url, reqWidth, reqHeight)?.let {
                 FormatUtil.getRoundedCacheName(it, config.roundedCornerPixel).apply {
                     if (ImageCache.findCacheBitmap(this)) {
                         applyImage(imageView, ImageCache.getBitmap(this), url, true)
