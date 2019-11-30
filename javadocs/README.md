@@ -25,7 +25,7 @@
 - Disk / Memory Cache 적용
 - Default ImageHolder, FileImage, Loding Progress 
 - 여러차례 Request수행시 이전 Request Cancel 처리
-- FIFO 지원
+- LIFO 지원
 - Glide 보다 빠른 ImageLoad
 
 #### RequestAPI
