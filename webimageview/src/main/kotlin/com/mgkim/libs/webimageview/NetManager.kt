@@ -17,9 +17,16 @@ import java.io.File
  * @since : 2019-11-20 오후 2:27
  **/
 object NetManager {
-    private lateinit var PACKAGE_NAME : String
-    internal lateinit var cacheImgPath : String
-    internal lateinit var mainHandler:Handler
+    private lateinit var context:Context
+    private val PACKAGE_NAME : String by lazy {
+        context.packageName
+    }
+    internal val cacheImgPath : String by lazy {
+        context.cacheDir.path + "/Pictures/"
+    }
+    internal val mainHandler:Handler by lazy {
+        Handler()
+    }
     private val client by lazy {
         OkHttpClient()
     }
@@ -36,11 +43,8 @@ object NetManager {
     * 각종 Config
     **/
     internal var config = NetManagerConfig()
-
     fun init(context: Context, config:NetManagerConfig? = null) {
-        PACKAGE_NAME = context.packageName
-        cacheImgPath = context.cacheDir.path + "/Pictures/"
-        mainHandler = Handler()
+        this.context = context
         var cacheImgDir = File(cacheImgPath)
         if (!cacheImgDir.exists()) {
             cacheImgDir.mkdirs()
@@ -70,6 +74,11 @@ object NetManager {
             is RequestLocal -> localThreadManager.addReq(req)
         }
     }
+
+    /**
+     * 설정값 clone
+     */
+    fun getConfigClone(): NetManagerConfig = config.clone()
 
     /**
      * ImageCache clear

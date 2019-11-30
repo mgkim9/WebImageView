@@ -6,7 +6,6 @@ import com.mgkim.libs.webimageview.widget.ImageFile
 import okhttp3.Request
 import okhttp3.Response
 import java.io.InputStream
-import java.lang.NullPointerException
 
 /**
  * Image를 받아오기위한 Request
@@ -16,11 +15,12 @@ import java.lang.NullPointerException
  * @param url : Image Url
  * @param reqWidth : resize를 위한 image 너비
  * @param reqHeight : resize를 위한 image 높이
+ * @param config : RequestImage 설정
  */
-class RequestImage(
+open class RequestImage(
     val url: String, private val reqWidth: Int = 0,
     private val reqHeight: Int = 0,
-    private val config: NetManagerConfig.WebImageViewConfig
+    protected val config: NetManagerConfig.WebImageViewConfig = NetManager.config.webImageViewConfig
 ) : RequestHttp<Bitmap?>() {
     /**
      * image가 저장될 file
@@ -40,7 +40,7 @@ class RequestImage(
     @Throws(NullPointerException::class)
     override fun preSend(): Boolean {
         FormatUtil.getFileName(url)!!.let {
-            imgFile = ImageFile(it, reqWidth, reqHeight)
+            imgFile = ImageFile(it, reqWidth, reqHeight, config)
             isCacheHit = imgFile?.getBitmap() != null
         }
         return isCacheHit

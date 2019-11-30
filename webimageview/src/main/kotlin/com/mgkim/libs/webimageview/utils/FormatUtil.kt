@@ -30,6 +30,23 @@ internal object FormatUtil {
     }
 
     /**
+     * RoundedCacheName
+     * Rounded된경우 CacheName fileName_100x200_R_roundedCornerPixel 형태로 저장
+     * @author : mgkim
+     * @version : 1.0.4
+     * @since : 2019-12-01 오전 3:55
+     * @param fileName : fileName
+     * @param roundedCornerPixel : roundedCornerPixel
+     */
+    fun getRoundedCacheName(fileName: String, roundedCornerPixel:Float): String {
+        return if(roundedCornerPixel >= 0) {
+            "${fileName}_R_$roundedCornerPixel"
+        } else {
+            fileName
+        }
+    }
+
+    /**
      * layout size 파싱 px 로 리턴
      * @author : mgkim
      * @version : 1.0.0

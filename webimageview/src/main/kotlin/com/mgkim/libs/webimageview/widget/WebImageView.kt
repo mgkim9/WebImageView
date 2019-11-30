@@ -13,6 +13,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import com.mgkim.libs.webimageview.*
 import com.mgkim.libs.webimageview.utils.FormatUtil
 import com.mgkim.libs.webimageview.utils.FormatUtil.getPxSize
+import com.mgkim.libs.webimageview.utils.FormatUtil.getRoundedCacheName
 import com.mgkim.libs.webimageview.utils.ImageUtil
 
 /**
@@ -82,6 +83,15 @@ open class WebImageView @JvmOverloads constructor(
      */
     private val preferredConfig: Bitmap.Config
 
+    /**
+     * 이미지 곡선 처리 값
+     */
+    private var roundedCornerPixel : Float
+
+    /**
+     * 이미지 곡선처리 미사용 여부 bitmask ( RoundedCornerSquare.TOP_LEFT(좌상단), RoundedCornerSquare.TOP_RIGHT(우상단), RoundedCornerSquare.BOTTOM_LEFT(좌하단), RoundedCornerSquare.BOTTOM_RIGHT(우하단)
+     */
+    private var roundedCornerNoSquare : Int
 
     /**
      * 이미지 다운로드 후 resize 여부
@@ -122,6 +132,8 @@ open class WebImageView @JvmOverloads constructor(
                 diskCacheOption = getInteger(R.styleable.WebImageView_disk_cache_option, config.diskCacheOption)
                 isMemoryCache = getBoolean(R.styleable.WebImageView_is_resize, config.isMemoryCache)
                 preferredConfig = Constants.nativeToConfig(getInteger(R.styleable.WebImageView_preferred_config, config.preferredConfig.value))
+                roundedCornerPixel = getDimension(R.styleable.WebImageView_rounded_corner_dp, config.roundedCornerPixel)
+                roundedCornerNoSquare = getInteger(R.styleable.WebImageView_rounded_corner_no_square, config.roundedCornerNoSquare)
                 isResize = getBoolean(R.styleable.WebImageView_is_resize, config.isResize)
                 isBigSize = getBoolean(R.styleable.WebImageView_is_big_size, config.isBigSize)
             }
@@ -165,10 +177,20 @@ open class WebImageView @JvmOverloads constructor(
             cancel()
             progress.visibility = View.GONE
         }
-        if (defaultImageResId != -1) {
-            setImageResource(defaultImageResId)
-        }
         checkRequestImage(url)
+    }
+
+    /**
+     * make rounded image
+     * @param roundedCornerPixel : Corner Radius (roundedCornerPixel <= 0 || roundedCornerPixel >= Math.max(width, height) / 2) 이면 isCircular = true)
+     * @param roundedCornerNoSquare : 이미지 곡선처리 미사용 여부 bitmask ( 0b0001(좌상단), 0b0010(우상단), 0b0100(좌하단), 0b1000(우하단)
+     */
+    fun makeRounded(roundedCornerPixel: Float, roundedCornerNoSquare: Int? = null) : WebImageView{
+        this.roundedCornerPixel = roundedCornerPixel
+        roundedCornerNoSquare?.apply {
+            this@WebImageView.roundedCornerNoSquare = this
+        }
+        return this
     }
 
     /**
@@ -176,13 +198,18 @@ open class WebImageView @JvmOverloads constructor(
      */
     private fun checkRequestImage(url: String) {
         if(isMemoryCache) { // memory cache hit
-            val fileName = getFileName(url)
-            if (!fileName.isNullOrEmpty() && ImageCache.findCacheBitmap(fileName)) {
-                applyImage(ImageCache.getBitmap(fileName), url, true)
-                return
+            getFileName(url)?.let {
+                getRoundedCacheName(it, roundedCornerPixel).apply {
+                    if (ImageCache.findCacheBitmap(this)) {
+                        applyImage(ImageCache.getBitmap(this), url, true)
+                        return
+                    }
+                }
             }
         }
-
+        if (defaultImageResId != -1) {
+            setImageResource(defaultImageResId)
+        }
         progress.visibility = View.VISIBLE
         val config = NetManagerConfig.WebImageViewConfig(
             diskCacheOption = diskCacheOption,
@@ -192,10 +219,12 @@ open class WebImageView @JvmOverloads constructor(
             failImageResId = failImageResId,
             animResId = animResId,
             progressResId = progressResId,
+            roundedCornerPixel = roundedCornerPixel,
+            roundedCornerNoSquare = roundedCornerNoSquare,
             isResize = isResize,
             isBigSize = isBigSize
         )
-        req = RequestImage(url, layoutWidth, layoutHeight, config).useHandler().setReceiver(this).addReq()
+        req = RequestImage(url, layoutWidth, layoutHeight, config).setReceiver(this).useHandler().addReq()
     }
 
     /**
@@ -205,11 +234,6 @@ open class WebImageView @JvmOverloads constructor(
      * @param isNoAnimation : Animation 여부
      */
     private fun applyImage(bitmap: Bitmap?, url: String, isNoAnimation: Boolean = false) {
-        if(isMemoryCache && bitmap != null) {
-            getFileName(url)?.let { // memory cache set
-                ImageCache.setBitmap(it, bitmap)
-            }
-        }
         ivImage.setImageBitmap(bitmap)
         progress.visibility = View.GONE
         if (animResId != -1 && !isNoAnimation) {

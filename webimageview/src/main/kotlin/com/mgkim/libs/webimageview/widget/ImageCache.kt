@@ -2,6 +2,9 @@ package com.mgkim.libs.webimageview.widget
 
 import android.graphics.Bitmap
 import android.util.LruCache
+import android.widget.ImageView
+import com.mgkim.libs.webimageview.IRequest
+
 /**
  * Memory cache
 * 최대 가용 Memory의 1/8만큼만 저장가능
@@ -10,7 +13,11 @@ import android.util.LruCache
 * @since : 2019-11-21 오후 7:55
 **/
 internal object ImageCache {
+    private val TAG = javaClass.simpleName
     private val cache: LruCache<String, Bitmap>
+    private val requestCache: LruCache<ImageView, IRequest<Bitmap>> by lazy {
+        LruCache<ImageView, IRequest<Bitmap>>(100)
+    }
 
     init {
         val maxMemory = (Runtime.getRuntime().maxMemory() ushr 10).toInt()
@@ -22,12 +29,12 @@ internal object ImageCache {
         }
     }
 
-    fun findCacheBitmap(url: String): Boolean {
-        return cache.get(url) != null
+    fun findCacheBitmap(key: String?): Boolean {
+        return cache.get(key) != null
     }
 
-    fun getBitmap(url: String): Bitmap? {
-        return cache.get(url)
+    fun getBitmap(key: String?): Bitmap? {
+        return cache.get(key)
     }
 
     fun setBitmap(key: String, bitmap: Bitmap) {
@@ -36,5 +43,25 @@ internal object ImageCache {
 
     fun clear() {
         cache.evictAll()
+    }
+
+    fun findRequestCache(imageView: ImageView): Boolean {
+        return requestCache.get(imageView) != null
+    }
+
+    fun getRequestCache(imageView: ImageView): IRequest<Bitmap>? {
+        return requestCache.get(imageView)
+    }
+
+    fun setRequestCache(imageView: ImageView, request: IRequest<Bitmap>) {
+        requestCache.put(imageView, request)
+    }
+
+    fun removeRequestCache(imageView: ImageView) {
+        requestCache.remove(imageView)
+    }
+
+    fun clearRequestCache() {
+        requestCache.evictAll()
     }
 }

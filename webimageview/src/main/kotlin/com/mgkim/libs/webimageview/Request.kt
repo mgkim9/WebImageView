@@ -1,7 +1,6 @@
 package com.mgkim.libs.webimageview
 
 import android.os.Handler
-import java.lang.StringBuilder
 
 /**
  * 최상위 Rquest abstract class
@@ -22,16 +21,6 @@ abstract class Request<E>: IRequest<E> {
      * onResult가 수행될 Handler
      */
     private var handler: Handler? = null
-
-    /**
-     * 결과를 mainHandler 로 전달 하려면 사용
-     */
-    fun useHandler() : Request<E> {
-        if(handler == null) {
-            handler = NetManager.mainHandler
-        }
-        return this
-    }
 
     val errorMsg: StringBuilder by lazy { StringBuilder() }
     var exception: Exception? = null
@@ -76,6 +65,16 @@ abstract class Request<E>: IRequest<E> {
                 onResult(isSuccess, this@Request)
             }
         }
+    }
+
+    /**
+     * 결과를 mainHandler 로 전달 하려면 사용
+     */
+    fun useHandler() : Request<E> {
+        if(handler == null) {
+            handler = NetManager.mainHandler
+        }
+        return this
     }
 
     /**

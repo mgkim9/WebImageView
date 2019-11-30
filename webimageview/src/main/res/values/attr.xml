@@ -19,6 +19,14 @@
             <enum name="rgba_f16" value="6" />
             <enum name="hardware" value="7" />
         </attr>
+        <attr name="rounded_corner_dp" format="dimension" />
+        <attr name="rounded_corner_no_square" format="flags" >
+            <flag name="corner_all" value="0x0" />
+            <flag name="top_left" value="0x1" />
+            <flag name="top_right" value="0x2" />
+            <flag name="bottom_left" value="0x4" />
+            <flag name="bottom_right" value="0x8" />
+        </attr>
         <attr name="is_resize" format="boolean" />
         <attr name="is_big_size" format="boolean" />
     </declare-styleable>
