@@ -1,4 +1,4 @@
-# WebImageView(1.0.3)
+# WebImageView(1.0.4)
 * * *
 [ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg?version=1.0.0) ](https://bintray.com/mgkim/maven/webimageview/1.0.0/link)
 - 2019.11.25
@@ -14,9 +14,15 @@
 - 2019.11.28
 - lambda식 추가
 
-[ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg) ](https://bintray.com/mgkim/maven/webimageview/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg?version=1.0.3) ](https://bintray.com/mgkim/maven/webimageview/1.0.3/link)
 - 2019.11.29
 - error handling 추가
+
+[ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg) ](https://bintray.com/mgkim/maven/webimageview/_latestVersion)
+- 2019.12.1
+- RequestImageOn 추가(Glide처럼 View를 지정해서 ImageRequest 처리)
+- Rounded 옵션 추가
+
 
 * * *
 ## 설명
@@ -28,6 +34,9 @@
 - LIFO 지원
 - Glide 보다 빠른 ImageLoad
 
+#### RequestImageOn
+ - 쉬운 Image Request 요청
+
 #### RequestAPI
  - 쉬운 Json api 요청
 
@@ -35,7 +44,7 @@
  - AsyncTask 대신 간편하게 Background 작업 수행
 
 * * *
-- ## API 문서 : [document](http://htmlpreview.github.com/?https://github.com/mgkim9/WebImageView/blob/1.0.3/javadocs/webimageview/index.html)
+- ## API 문서 : [document](http://htmlpreview.github.com/?https://github.com/mgkim9/WebImageView/blob/1.0.4/javadocs/webimageview/index.html)
 * * *
 
 ### dependencies:
@@ -54,9 +63,46 @@
 1.기능
 =============
 
-1.이미지 다운로더
+1.이미지 다운로더(Request and Into 방식)
 -------------
-[WebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.3/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-web-image-view/index.html) (Memory, File cache 사용)
+[RequestImageOn](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.4/javadocs/webimageview/com.mgkim.libs.webimageview/-request-image-on/index.html) (Memory, File cache 사용)
+
+### exemple 1) 기본 이미지 다운로드
+### src:
+    private val ivImage: ImageView = view.findViewById(R.id.iv_image)
+    val = url = "https://via.placeholder.com/600/6dd9cb"
+    RequestImageOn(url).into(ivImage)
+
+### exemple 2)
+### src:
+    private val ivImage: ImageView = view.findViewById(R.id.iv_image)
+    val = url = "https://via.placeholder.com/600/6dd9cb"
+    RequestImageOn(url)
+    .makeRounded(0F) // (Circular)
+    //.makeRounded(20F) // (Rounded)
+    .into(ivImage)
+
+### exemple 3)
+### src:
+    private val ivImage: ImageView = view.findViewById(R.id.iv_image)
+    val = url = "https://via.placeholder.com/600/6dd9cb"
+    RequestImageOn(url, ivImage.width, ivImage.height, NetManagerConfig.WebImageViewConfig(
+      diskCacheOption = NetManagerConfig.DiskCacheOption.RESIZE_CACEH,
+      isMemoryCache = true,
+      preferredConfig = Bitmap.Config.ARGB_8888,
+      defaultImageResId = com.mgkim.libs.webimageview.R.drawable.ic_default_picture,
+      failImageResId = com.mgkim.libs.webimageview.R.drawable.ic_frown,
+      animResId = android.R.anim.fade_in,
+      progressResId =  -1,
+      roundedCornerPixel = 30F,
+      roundedCornerNoSquare = NetManagerConfig.RoundedCornerSquare.TOP_LEFT or NetManagerConfig.RoundedCornerSquare.BOTTOM_RIGHT,
+      isResize = true,
+      isBigSize = false
+    )).into(ivImage)
+
+2.이미지 다운로더(CustomView 방식)
+-------------
+[WebImageView](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.4/javadocs/webimageview/com.mgkim.libs.webimageview.widget/-web-image-view/index.html) (Memory, File cache 사용)
 
 ### exemple 1) 기본 이미지 다운로드
 ### xml:
@@ -94,11 +140,11 @@
     val ivImage: WebImageView = findViewById(R.id.iv_image)
     ivImage.setUrl(url)    
 
-2.api 요청
+3.api 요청
 -------------
-[RequestAPI](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.3/javadocs/webimageview/com.mgkim.libs.webimageview/-request-a-p-i/index.html) (Api 호출을 위한 Request)
+[RequestAPI](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.4/javadocs/webimageview/com.mgkim.libs.webimageview/-request-a-p-i/index.html) (Api 호출을 위한 Request)
 
-[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.3/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
+[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.4/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
 
 ### exemple ) api 요청
 https://jsonplaceholder.typicode.com/photos/1
@@ -161,13 +207,13 @@ lambda
         }.useHandler() //결과(onResult)를 mainThread에서 수행 함
         .addReq()   // Request 시작
 
-3.local 작업
+4.local 작업
 -------------
-[RequestLocal](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.3/javadocs/webimageview/com.mgkim.libs.webimageview/-request-local/index.html) (Local 작업용 Request)
+[RequestLocal](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.4/javadocs/webimageview/com.mgkim.libs.webimageview/-request-local/index.html) (Local 작업용 Request)
 
-[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.3/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
+[IResultReceiver](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.4/javadocs/webimageview/com.mgkim.libs.webimageview/-i-result-receiver/index.html) (Request 결과를 전달할 listener)
 
-[IDoInBackground](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.3/javadocs/webimageview/com.mgkim.libs.webimageview/-i-do-in-background/index.html) (Background 작업 내용을 구현할 interface)
+[IDoInBackground](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.4/javadocs/webimageview/com.mgkim.libs.webimageview/-i-do-in-background/index.html) (Background 작업 내용을 구현할 interface)
 
 ### exemple 1) 기본 Local 작업
 ### src:
@@ -197,7 +243,7 @@ lambda
 
 2.Global Config
 =============
-[NetManagerConfig](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.3/javadocs/webimageview/com.mgkim.libs.webimageview/-net-manager-config/index.html) (NetManager 설정 class)
+[NetManagerConfig](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mgkim9/WebImageView/1.0.4/javadocs/webimageview/com.mgkim.libs.webimageview/-net-manager-config/index.html) (NetManager 설정 class)
 
 ### Config
 - diskCacheOption : diskCache 설정 지정
