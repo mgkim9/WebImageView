@@ -53,7 +53,7 @@
     }
     dependencies {
         // webimageview
-        implementation 'com.mgkim.webimageview:webimageview:1.0.1@aar'
+        implementation 'com.mgkim.webimageview:webimageview:1.0+@aar'
     }
 
 ### Sample:
