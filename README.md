@@ -272,13 +272,18 @@ Application class
             isBigSize = false
         )
     ))
-3.성능
+
+3.UML
+=============
+![Test](https://user-images.githubusercontent.com/26315271/70968343-4de57a00-20dc-11ea-8fd4-9c0a4434aa35.gif)
+
+4.성능
 =============
 1.vs Glide
 -------------
     
 ### WebImageView(노란색) vs Glide(분홍색)
-![Test](https://j.gifs.com/xnzvnq.gif)
+![UML](https://j.gifs.com/xnzvnq.gif)
 
 - Glide 설정
 AppGlideModule class
