@@ -18,10 +18,14 @@
 - 2019.11.29
 - error handling 추가
 
-[ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg) ](https://bintray.com/mgkim/maven/webimageview/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg?version=1.0.4) ](https://bintray.com/mgkim/maven/webimageview/1.0.4/link)
 - 2019.12.1
 - RequestImageOn 추가(Glide처럼 View를 지정해서 ImageRequest 처리)
 - Rounded 옵션 추가
+
+[ ![Download](https://api.bintray.com/packages/mgkim/maven/webimageview/images/download.svg) ](https://bintray.com/mgkim/maven/webimageview/_latestVersion)
+- 2020.02.05
+- RequestImageOn 메모리릭 수정 (LifecycleObserver, WeakReference 이용)
 
 
 * * *
