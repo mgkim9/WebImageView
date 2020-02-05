@@ -2,6 +2,7 @@ package com.mgkim.libs.webimageview
 
 import android.graphics.Bitmap
 import com.mgkim.libs.webimageview.utils.FormatUtil
+import com.mgkim.libs.webimageview.utils.Log
 import com.mgkim.libs.webimageview.widget.ImageFile
 import okhttp3.Request
 import okhttp3.Response
@@ -42,6 +43,11 @@ open class RequestImage(
         FormatUtil.getFileName(url)!!.let {
             imgFile = ImageFile(it, reqWidth, reqHeight, config)
             isCacheHit = imgFile?.getBitmap() != null
+//            if(isCacheHit) {
+//                Log.i(TAG, " FileCache hit!!")
+//            } else {
+//                Log.i(TAG, " Cache no hit!!")
+//            }
         }
         return isCacheHit
     }

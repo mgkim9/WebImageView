@@ -15,8 +15,8 @@ import com.mgkim.libs.webimageview.IRequest
 internal object ImageCache {
     private val TAG = javaClass.simpleName
     private val cache: LruCache<String, Bitmap>
-    private val requestCache: LruCache<ImageView, IRequest<Bitmap?>> by lazy {
-        LruCache<ImageView, IRequest<Bitmap?>>(100)
+    private val requestCache: LruCache<Int, IRequest<Bitmap?>> by lazy {
+        LruCache<Int, IRequest<Bitmap?>>(100)
     }
 
     init {
@@ -46,19 +46,19 @@ internal object ImageCache {
     }
 
     fun findRequestCache(imageView: ImageView): Boolean {
-        return requestCache.get(imageView) != null
+        return requestCache.get(imageView.hashCode()) != null
     }
 
     fun getRequestCache(imageView: ImageView): IRequest<Bitmap?>? {
-        return requestCache.get(imageView)
+        return requestCache.get(imageView.hashCode())
     }
 
     fun setRequestCache(imageView: ImageView, request: IRequest<Bitmap?>) {
-        requestCache.put(imageView, request)
+        requestCache.put(imageView.hashCode(), request)
     }
 
     fun removeRequestCache(imageView: ImageView) {
-        requestCache.remove(imageView)
+        requestCache.remove(imageView.hashCode())
     }
 
     fun clearRequestCache() {

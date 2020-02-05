@@ -3,8 +3,12 @@ package com.mgkim.libs.webimageview
 import android.graphics.Bitmap
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
 import com.mgkim.libs.webimageview.utils.FormatUtil
+import com.mgkim.libs.webimageview.utils.Log
 import com.mgkim.libs.webimageview.widget.ImageCache
+import java.lang.ref.WeakReference
 
 /**
  * Image를 받아오기위한 Request
@@ -37,6 +41,7 @@ class RequestImageOn(
                 FormatUtil.getRoundedCacheName(it, config.roundedCornerPixel).apply {
                     if (ImageCache.findCacheBitmap(this)) {
                         applyImage(imageView, ImageCache.getBitmap(this), true)
+//                        Log.i(TAG, " Cache hit!!")
                         return
                     }
                 }
@@ -45,19 +50,29 @@ class RequestImageOn(
         if (config.defaultImageResId != -1) {
             imageView.setImageResource(config.defaultImageResId)
         }
+        val wrfImageView = WeakReference<ImageView>(imageView)
         ImageCache.setRequestCache(imageView, this as IRequest<Bitmap?>) // Request cache
         setReceiver{isSuccess, obj ->
-            ImageCache.removeRequestCache(imageView)// Request cache remove
-            if (isSuccess) {
-                val requestImage = obj as RequestImage
-                val bitmap = requestImage.getResult()
-                if (bitmap != null) {
-                    applyImage(imageView, bitmap, requestImage.isCacheHit)
+            val imageView = wrfImageView.get()
+            if(imageView != null) {
+                if((imageView.context as? LifecycleOwner)?.lifecycle?.currentState == Lifecycle.State.DESTROYED) {
+                    Log.i(TAG, " context is " + (imageView.context as LifecycleOwner).lifecycle.currentState)
+                    return@setReceiver
+                }
+                ImageCache.removeRequestCache(imageView)// Request cache remove
+                if (isSuccess) {
+                    val requestImage = obj as RequestImage
+                    val bitmap = requestImage.getResult()
+                    if (bitmap != null) {
+                        applyImage(imageView, bitmap, requestImage.isCacheHit)
+                    }
+                } else {
+                    if (config.failImageResId != -1) {
+                        imageView.setImageResource(config.failImageResId)
+                    }
                 }
             } else {
-                if (config.failImageResId != -1) {
-                    imageView.setImageResource(config.failImageResId)
-                }
+                Log.i(TAG, "IResultReceiver imageView is removed!!")
             }
         }.useHandler().addReq()
     }
