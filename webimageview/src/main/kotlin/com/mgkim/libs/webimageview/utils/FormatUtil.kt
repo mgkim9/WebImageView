@@ -1,6 +1,8 @@
 package com.mgkim.libs.webimageview.utils
 
 import android.content.res.Resources
+import com.google.gson.JsonObject
+import java.net.URLEncoder
 import java.util.regex.Pattern
 
 internal object FormatUtil {
@@ -75,4 +77,62 @@ internal object FormatUtil {
             0
         }
     }
+
+    /**
+     * 클레스를 post 형태 body로 만드는 함수
+     *
+     * @param obj : 변환할 class
+     * @return String : post형태 body
+     */
+    fun mappingClass(obj: Any): String? {
+        var str : StringBuilder? = null
+        val fields = obj.javaClass.declaredFields
+
+        for (field in fields) {
+            val strtype = field.type.simpleName
+            val decClass = field.declaringClass
+            if (!field.isAccessible) {
+                field.isAccessible = true
+            }
+            if ("int".compareTo(strtype, true) == 0
+                || "Integer".compareTo(strtype, true) == 0
+                || "long".compareTo(strtype, true) == 0
+                || "double".compareTo(strtype, true) == 0
+                || "String".compareTo(strtype, true) == 0
+                || "boolean".compareTo(strtype, true) == 0
+            ) {
+                if (field.get(obj) == null) {
+                    continue
+                }
+                if (str == null) {
+                    str = StringBuilder()
+                } else {
+                    str.append("&")
+                }
+                str.append(field.name).append("=").append(URLEncoder.encode(field.get(obj)?.toString(), "UTF-8"))
+            }
+        }
+        return str?.toString()
+    }
+
+    fun mappingJson(obj: JsonObject?): String? {
+        if(obj == null) {
+            return null
+        }
+
+        var str : StringBuilder? = null
+        for (key in obj.keySet()) {
+            var value = obj.get(key)
+            if (value != null) {
+                if (str == null) {
+                    str = StringBuilder()
+                } else {
+                    str.append("&")
+                }
+                str.append(key).append("=").append(URLEncoder.encode(value?.asString, "UTF-8"))
+            }
+        }
+        return str?.toString()
+    }
+
 }
