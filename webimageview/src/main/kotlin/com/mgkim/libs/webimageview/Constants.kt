@@ -36,6 +36,10 @@ internal object Constants {
     }
 }
 
+enum class Method {
+    GET, POST
+}
+
 internal val Bitmap.Config.value: Int
     get() {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
