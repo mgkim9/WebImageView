@@ -8,7 +8,7 @@
 <a href="../../index.html">webimageview</a>&nbsp;/&nbsp;<a href="../index.html">com.mgkim.libs.webimageview</a>&nbsp;/&nbsp;<a href="./index.html">Request</a><br/>
 <br/>
 <h1>Request</h1>
-<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Request</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Request</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">Observer</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code>
 <p>최상위 Rquest abstract class</p>
 <h3>Parameters</h3>
 <p><a name="E"></a>
@@ -67,6 +67,14 @@
 </tr>
 <tr>
 <td>
+<h4><a href="is-dispos.html">isDispos</a></h4>
+</td>
+<td>
+<p>메모리 정리를 위한 LiveData</p>
+<code><span class="keyword">var </span><span class="identifier">isDispos</span><span class="symbol">: </span><span class="identifier">LiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="is-success.html">isSuccess</a></h4>
 </td>
 <td>
@@ -107,7 +115,7 @@ Retry를 사용하려면 구현체에서 override하여 1 이상으로 설정 �
 </td>
 <td>
 <p>Request 수행</p>
-<code><span class="keyword">fun </span><span class="identifier">addReq</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">addReq</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.Request$addReq(androidx.lifecycle.LiveData((kotlin.Boolean)))/isDispos">isDispos</span><span class="symbol">:</span>&nbsp;<span class="identifier">LiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="../-i-request/index.html"><span class="identifier">IRequest</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -140,6 +148,13 @@ Retry를 사용하려면 구현체에서 override하여 1 이상으로 설정 �
 <td>
 <p>결과 전달</p>
 <code><span class="keyword">fun </span><span class="identifier">notifyReceiver</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-changed.html">onChanged</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onChanged</span><span class="symbol">(</span><span class="identifier" id="com.mgkim.libs.webimageview.Request$onChanged(kotlin.Boolean)/t">t</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>

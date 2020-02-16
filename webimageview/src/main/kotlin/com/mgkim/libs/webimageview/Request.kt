@@ -87,6 +87,7 @@ abstract class Request<E>: IRequest<E>, Observer<Boolean> {
 
     /**
      * Request 수행
+     * @param isDispos : 메모리릭 방지를 위한 LiveData
      */
     fun addReq(isDispos : LiveData<Boolean>? = null): IRequest<E> {
         this.isDispos?.removeObserver(this)
