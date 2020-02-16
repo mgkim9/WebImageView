@@ -53,6 +53,7 @@ class RequestImageOn(
         val wrfImageView = WeakReference<ImageView>(imageView)
         ImageCache.setRequestCache(imageView, this as IRequest<Bitmap?>) // Request cache
         setReceiver{isSuccess, obj ->
+            @Suppress("NAME_SHADOWING")
             val imageView = wrfImageView.get()
             if(imageView != null) {
                 if((imageView.context as? LifecycleOwner)?.lifecycle?.currentState == Lifecycle.State.DESTROYED) {

@@ -22,14 +22,14 @@ import okhttp3.Response
  * @param headers : api headers
  */
 class RequestAPI<E>: RequestHttp<E>{
-    private val classNm: Class<E>
+    private val classNm: Class<*>
     private val type: TypeToken<E>?
     private val url:String
     private val body:RequestBody?
     private val headers: Headers?
 
     constructor(type: TypeToken<E>, method:Method, url:String, body:Any? = null, headers: Headers? = null) {
-        this.classNm = type.rawType as Class<E>
+        this.classNm = type.rawType as Class<*>
         this.type = type
         if(method == Method.POST) {
             this.url = url

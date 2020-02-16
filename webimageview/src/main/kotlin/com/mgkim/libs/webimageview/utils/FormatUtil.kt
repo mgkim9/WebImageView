@@ -90,7 +90,7 @@ internal object FormatUtil {
 
         for (field in fields) {
             val strtype = field.type.simpleName
-            val decClass = field.declaringClass
+//            val decClass = field.declaringClass
             if (!field.isAccessible) {
                 field.isAccessible = true
             }
@@ -129,7 +129,7 @@ internal object FormatUtil {
                 } else {
                     str.append("&")
                 }
-                str.append(key).append("=").append(URLEncoder.encode(value?.asString, "UTF-8"))
+                str.append(key).append("=").append(URLEncoder.encode(value.asString, "UTF-8"))
             }
         }
         return str?.toString()
