@@ -1,6 +1,8 @@
 package com.mgkim.libs.webimageview
 
 import android.os.Handler
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 
 /**
  * 최상위 Rquest abstract class
@@ -9,7 +11,8 @@ import android.os.Handler
  * @since : 2019-11-20 오후 1:55
  * @param E : Request 결과물 Type
  */
-abstract class Request<E>: IRequest<E> {
+abstract class Request<E>: IRequest<E>, Observer<Boolean> {
+
     val TAG = javaClass.simpleName
     /**
      * Retry 횟수
@@ -21,6 +24,11 @@ abstract class Request<E>: IRequest<E> {
      * onResult가 수행될 Handler
      */
     private var handler: Handler? = null
+
+    /**
+     * 메모리 정리를 위한 LiveData
+     */
+    protected var isDispos : LiveData<Boolean>? = null
 
     val errorMsg: StringBuilder by lazy { StringBuilder() }
     var exception: Exception? = null
@@ -80,14 +88,26 @@ abstract class Request<E>: IRequest<E> {
     /**
      * Request 수행
      */
-    fun addReq(): IRequest<E> {
+    fun addReq(isDispos : LiveData<Boolean>? = null): IRequest<E> {
+        this.isDispos?.removeObserver(this)
+        this.isDispos = isDispos?.apply {
+            observeForever(this@Request)
+        }
         NetManager.addReq(this)
         return this
     }
 
     fun release() {
+        isDispos?.removeObserver(this)
+        isDispos = null
         cancel()
         handler = null
         receiver = null
+    }
+
+    override fun onChanged(t: Boolean?) {
+        if(t == true) {
+            release()
+        }
     }
 }

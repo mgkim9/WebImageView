@@ -34,7 +34,11 @@ abstract class RequestHttp<E>: Request<E>() {
             if(preSend()) {
                 isSuccess = true
             } else {
-                isSuccess = onResult(NetManager.execute(getRequest()))
+                val res = NetManager.execute(getRequest())
+                if(!isCancel) {
+                    //작업중 cancel여부 체크
+                    isSuccess = onResult(res)
+                }
             }
             if(isSuccess && !isCancel) {
                 notifyReceiver()
